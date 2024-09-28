@@ -24,7 +24,6 @@ export default function Hero() {
       }
     </h1>
     <div className="my-8">
-      {/* <BlogPosts /> */}
     </div>
   </section>
   <div className={styles.videoWrap}>
