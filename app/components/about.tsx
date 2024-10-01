@@ -4,7 +4,7 @@ import { ReactTyped } from "react-typed";
 
 export default function About() {
   return (
-    <section className="h-screen flex items-center justify-center ">
+    <section className="h-screen min-h-fit flex items-center justify-center ">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
           <div className="col-span-1 order-last md:order-first lg:order-first xl:order-first p-4 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold text-white mb-5">{"My name is Ryan,"} <br /> {" I'm "} 

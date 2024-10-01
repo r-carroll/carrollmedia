@@ -13,14 +13,14 @@ export default function Projects() {
   };
 
   return (
-    <section className="h-screen items-center justify-center mt-4">
+    <section className="min-h-fit items-center justify-center my-6 text-center">
       <h1 className="text-2xl font-bold text-white pb-7">Some things I have done</h1>
       <Carousel
         responsive={responsive}
         infinite={true}
         itemClass={styles.carouselItems}
         autoPlay={true}
-        autoPlaySpeed={8000}
+        autoPlaySpeed={10000}
       >
         <div>
           <a
