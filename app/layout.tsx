@@ -1,4 +1,5 @@
 import './global.css'
+
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-}
+};
 
 const cx = (...classes) => classes.filter(Boolean).join(' ')
 
