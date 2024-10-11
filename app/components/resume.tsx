@@ -15,7 +15,7 @@ export default function Resume() {
 
   return (
     <>
-    <h2 className="text-2xl font-bold mt-6 mb-6 text-center">Places I've built amazing things</h2><div>
+    <h2 id="resume" className="text-2xl font-bold mt-6 mb-6 text-center">Places I've built amazing things</h2><div>
       <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} sx={{ backgroundColor: "black", color: "white", border: "2px", borderColor: "grey" }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon sx={{color: "white"}}/>}

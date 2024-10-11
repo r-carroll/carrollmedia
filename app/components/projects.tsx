@@ -13,7 +13,7 @@ export default function Projects() {
   };
 
   return (
-    <section className="min-h-fit items-center justify-center my-6 text-center">
+    <section id='projects' className="min-h-fit items-center justify-center my-6 text-center">
       <h1 className="text-2xl font-bold text-white pb-7">Some things I have done</h1>
       <Carousel
         responsive={responsive}

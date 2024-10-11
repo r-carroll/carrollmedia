@@ -7,7 +7,7 @@ import styles from './hero.module.scss';
 export default function Hero() {
   return (
     <>
-    <section className="h-screen flex items-center justify-center">
+    <section id="hero" className="h-screen flex items-center justify-center">
     <h1 className="mb-8 text-6xl font-semibold tracking-tighter">
       {
         <ReactTyped

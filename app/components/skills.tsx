@@ -6,7 +6,7 @@ import { SlBookOpen } from "react-icons/sl";
 
 export default function Skills() {
   return (
-    <section className="items-center justify-center mt-7 text-center">
+    <section id="skills" className="items-center justify-center mt-7 text-center">
       <br />
       <br />
       <h1 className="text-2xl font-bold text-white">
