@@ -2,3 +2,5 @@ css/
 js/
 node_modules/*
 img/.DS_Store
+
+.next/
