@@ -1,0 +1,29 @@
+// Styling for the masthead
+.masthead {
+  position: relative;
+  height: 100vh;
+  min-height: 100vh;
+  margin-bottom: 50px;
+  text-align: center;
+  p {
+    font-size: 1.15rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+.videoWrap {
+z-index: -100;
+}
+
+.bgVideo {
+position: absolute;
+top: 0;
+left: 0;
+object-fit: cover;
+width: 100%;
+height: 100%;
+filter: grayscale(0.2);
+opacity: 0.3;
+}
