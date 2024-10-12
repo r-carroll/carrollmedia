@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     template: '%s | Home',
   },
   description: 'CarrollMedia Portfolio',
+  icons: 'favicon.svg',
   openGraph: {
     title: 'CarrollMedia',
     description: 'Ryan Carroll portfolio',
