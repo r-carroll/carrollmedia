@@ -9,7 +9,7 @@ export default function Skills() {
     <section id="skills" className="items-center justify-center mt-7 text-center">
       <br />
       <br />
-      <h1 className="text-2xl font-bold text-white">
+      <h1 className="text-2xl font-bold">
         The skills & tech I use to build fun things
       </h1>
       <p>(a little bit of everything. we're talking full-stack after all)</p>

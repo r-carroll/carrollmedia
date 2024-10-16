@@ -14,7 +14,7 @@ export default function Projects() {
 
   return (
     <section id='projects' className="min-h-fit items-center justify-center my-6 text-center">
-      <h1 className="text-2xl font-bold text-white pb-7">Some things I have done</h1>
+      <h1 className="text-2xl font-bold pb-7">Some things I have done</h1>
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -68,8 +68,7 @@ export default function Projects() {
         </div>
         <div>
           <a
-            href="http://data.carrollmedia.dev/public-dashboards/c9a3620259a841a4afd1ed97c3c333c0"
-            target="_blank"
+            href="/decibel-meter"
           >
             <label htmlFor="environmental" className="mb-2 text-lg">
               Environmental Noise Dashboard

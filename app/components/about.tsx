@@ -7,7 +7,7 @@ export default function About() {
     <section id="about" className="h-screen min-h-fit flex items-center justify-center ">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
           <div className="col-span-1 order-last md:order-first lg:order-first xl:order-first p-4 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-white mb-5">{"My name is Ryan,"} <br /> {" I'm "} 
+            <h2 className="text-2xl font-bold mb-5">{"My name is Ryan,"} <br /> {" I'm "} 
             <u>
               <ReactTyped
               strings={[
@@ -25,7 +25,7 @@ export default function About() {
                         ></ReactTyped>
             </u>
             </h2>
-            <p className="text-lg text-white">
+            <p className="text-lg ">
             I'm so glad you've taken the time to pay me a visit. I love putting
           software and technology to work solving fun and interesting problems
           both at work and in my personal life. I believe that tackling problems

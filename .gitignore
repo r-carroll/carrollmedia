@@ -1,6 +1,7 @@
 css/
 js/
 node_modules/*
-img/.DS_Store
+**.DS_Store
+.DS_Store
 
 .next/
