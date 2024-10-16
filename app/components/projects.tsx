@@ -14,7 +14,7 @@ export default function Projects() {
 
   return (
     <section id='projects' className="min-h-fit items-center justify-center my-6 text-center">
-      <h1 className="text-2xl font-bold text-white pb-7">Some things I have done</h1>
+      <h1 className="text-2xl font-bold pb-7">Some things I have done</h1>
       <Carousel
         responsive={responsive}
         infinite={true}
