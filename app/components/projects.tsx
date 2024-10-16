@@ -68,8 +68,7 @@ export default function Projects() {
         </div>
         <div>
           <a
-            href="http://data.carrollmedia.dev/public-dashboards/c9a3620259a841a4afd1ed97c3c333c0"
-            target="_blank"
+            href="/decibel-meter"
           >
             <label htmlFor="environmental" className="mb-2 text-lg">
               Environmental Noise Dashboard
