@@ -1,7 +1,6 @@
 "use client";
 
 import { ReactTyped } from "react-typed";
-import { BlogPosts } from "./posts";
 import styles from './hero.module.scss';
 
 export default function Hero() {
