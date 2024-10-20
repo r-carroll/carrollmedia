@@ -26,7 +26,7 @@ export default function Hero() {
     </div>
   </section>
   <div className={styles.videoWrap}>
-				<video className={styles.bgVideo} autoPlay loop muted>
+				<video className={styles.bgVideo} autoPlay playsinline loop muted>
 					<source src='video/CM-hero.mp4' type="video/mp4"></source>
 				</video>
 	</div>
