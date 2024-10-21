@@ -31,6 +31,7 @@ export default function DecibelMeter() {
         variant="contained"
         size="large"
         style={{ margin: "10px", minWidth: "175px", marginBottom: "20px" }}
+        onClick={() => window.open('DIY-IoT.pdf', '_blank')}
       >
         <LuPresentation />
         &nbsp;View the slides
