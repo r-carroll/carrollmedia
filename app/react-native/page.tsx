@@ -41,11 +41,22 @@ export default function ReactNative() {
         <FaGithub />
         &nbsp;GitHub
       </Button>
+      <Button
+        variant="contained"
+        size="large"
+        style={{ margin: "10px", minWidth: "175px", marginBottom: "20px" }}
+        onClick={() =>
+          window.open("https://apps.apple.com/us/app/travel-bingo-road-trip-bingo/id6479892388", "_blank")
+        }
+      >
+        <FaGithub />
+        &nbsp;Check out Bingo
+      </Button>
       <img
         id="react-image"
         src="images/portfolio/react-dissection-dark.png"
         alt="react component dissection"
-        className="pb-3"
+        className="pb-3 pt-3"
       />
     </section>
   );
