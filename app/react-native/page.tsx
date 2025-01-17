@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@mui/material";
-import { FaGithub } from "react-icons/fa";
+import { FaAppStoreIos, FaGithub } from "react-icons/fa";
 import { LuPresentation } from "react-icons/lu";
 
 export default function ReactNative() {
@@ -10,7 +10,7 @@ export default function ReactNative() {
       <h1 className="text-2xl font-bold my-3">
         Building and publishing a native, cross-platform mobile app
       </h1>
-      <p className="my-3 text-lg">Visualizing Noise Pollution</p>
+      <p className="my-3 text-lg">From idea to production</p>
       <p className="my-4">
         Have a fun app idea but feel overwhelmed by development options? Choosing a framework, initializing the project, 
         and publishing in app stores can be daunting. Luckily, open-source projects like React Native and Expo make the process easier.
@@ -49,7 +49,7 @@ export default function ReactNative() {
           window.open("https://apps.apple.com/us/app/travel-bingo-road-trip-bingo/id6479892388", "_blank")
         }
       >
-        <FaGithub />
+        <FaAppStoreIos />
         &nbsp;Check out Bingo
       </Button>
       <img
@@ -58,6 +58,7 @@ export default function ReactNative() {
         alt="react component dissection"
         className="pb-3 pt-3"
       />
+      <p>Image Credit: <a href="https://reactnative.dev/">React Native</a></p>
     </section>
   );
 }
