@@ -1,8 +1,10 @@
 import { AiOutlineRuby } from "react-icons/ai";
 import { FaAngular, FaAws, FaChartArea, FaDocker, FaGithub, FaJava, FaJenkins, FaPython, FaReact, FaRocket, FaVuejs } from "react-icons/fa";
-import { SiConcourse, SiDatabricks, SiDatadog, SiExpo, SiGrafana, SiKubernetes, SiMicrosoftazure, SiMicrosoftsqlserver, SiNewrelic, SiNumpy, SiOracle, SiSplunk } from "react-icons/si";
+import { SiConcourse, SiDatabricks, SiDatadog, SiExpo, SiGrafana, SiKubernetes, SiNewrelic, SiNumpy, SiOracle, SiSplunk } from "react-icons/si";
 import { DiPostgresql, DiSpark } from "react-icons/di";
 import { SlBookOpen } from "react-icons/sl";
+import { VscAzure } from "react-icons/vsc";
+import { DiMsqlServer } from "react-icons/di";
 
 export default function Skills() {
   return (
@@ -52,7 +54,7 @@ export default function Skills() {
                 <SiOracle size={32} />&nbsp;Oracle
               </div>
               <div className="flex items-center py-1">
-                <SiMicrosoftsqlserver size={32} />&nbsp;SQL Server
+                <DiMsqlServer size={32} />&nbsp;SQL Server
               </div>
             </div>
           </div>
@@ -120,7 +122,7 @@ export default function Skills() {
                 <FaAws size={32} />&nbsp;AWS
               </div>
               <div className="flex items-center py-1">
-                <SiMicrosoftazure size={32} />&nbsp;Azure
+                <VscAzure size={32} />&nbsp;Azure
               </div>
             </div>
           </div>

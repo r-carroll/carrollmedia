@@ -52,6 +52,17 @@ export default function ReactNative() {
         <FaAppStoreIos />
         &nbsp;Check out Bingo
       </Button>
+      <Button
+        variant="contained"
+        size="large"
+        style={{ margin: "10px", minWidth: "175px", marginBottom: "20px" }}
+        onClick={() =>
+          window.open("https://apps.apple.com/us/app/circles-relationships/id6743945385", "_blank")
+        }
+      >
+        <FaAppStoreIos />
+        &nbsp;Check out Circles
+      </Button>
       <img
         id="react-image"
         src="images/portfolio/react-dissection-dark.png"
