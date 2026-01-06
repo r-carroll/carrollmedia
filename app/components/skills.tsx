@@ -46,7 +46,7 @@ export default function Skills() {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <BilingualHeader
             en="TECHNICAL ARSENAL"
-            ja="技術"
+            ja="スキル"
             className="text-[var(--accent-primary)] text-sm tracking-[0.2em] uppercase font-bold"
           />
         </div>

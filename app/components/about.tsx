@@ -67,10 +67,11 @@ export default function About() {
                   "an adventurer",
                   "a tea-enthusiast",
                   "a backpacker",
-                  "プログラマ",
+                  "a backpacker",
+                  "ソフトウェアエンジニア",
                   "a traveler",
                   "a problem solver",
-                  "プログラマ",
+                  "ソフトウェアエンジニア",
                   "a software engineer",
                 ]}
                 typeSpeed={70}

@@ -6,27 +6,27 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto flex flex-col justify-between min-h-[50vh]">
 
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8">
-          <div className="flex flex-col">
-            <h2 className="text-6xl md:text-8xl lg:text-9xl font-black font-[family-name:var(--font-syne)] tracking-tighter uppercase leading-[0.85]">
+        <div className="flex flex-col md:flex-row flex-wrap justify-between items-start md:items-end mb-12 md:mb-20 gap-8">
+          <div className="flex flex-col max-w-full">
+            <h2 className="text-6xl md:text-8xl lg:text-9xl font-black font-[family-name:var(--font-syne)] tracking-tighter uppercase leading-[0.85] break-words">
               Let&apos;s Work
             </h2>
-            <h2 className="text-6xl md:text-8xl lg:text-9xl font-black font-[family-name:var(--font-syne)] tracking-tighter uppercase leading-[0.85] text-[var(--accent-primary)]">
+            <h2 className="text-6xl md:text-8xl lg:text-9xl font-black font-[family-name:var(--font-syne)] tracking-tighter uppercase leading-[0.85] text-[var(--accent-primary)] break-words">
               Together
             </h2>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+          <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto flex-wrap">
             <a
               href="mailto:ryan@carrollmedia.dev"
-              className="px-8 py-4 rounded-full border-2 border-[var(--bg-primary)] bg-[var(--bg-primary)] text-[var(--text-primary)] font-bold uppercase tracking-widest hover:opacity-80 transition-opacity duration-300 text-center whitespace-nowrap"
+              className="px-6 py-3 md:px-8 md:py-4 rounded-full border-2 border-[var(--bg-primary)] bg-[var(--bg-primary)] text-[var(--text-primary)] font-bold uppercase tracking-widest hover:opacity-80 transition-opacity duration-300 text-center text-sm md:text-base"
             >
               Get in touch
             </a>
             <a
               href="/resume.pdf"
               target="_blank"
-              className="px-8 py-4 rounded-full border-2 border-[var(--bg-primary)] text-[var(--bg-primary)] font-bold uppercase tracking-widest hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] transition-colors duration-300 text-center whitespace-nowrap"
+              className="px-6 py-3 md:px-8 md:py-4 rounded-full border-2 border-[var(--bg-primary)] text-[var(--bg-primary)] font-bold uppercase tracking-widest hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] transition-colors duration-300 text-center text-sm md:text-base"
             >
               Download CV
             </a>
