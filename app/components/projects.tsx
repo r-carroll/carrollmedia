@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import BilingualHeader from './bilingual_header';
 
 const PROJECTS = [
   {
@@ -52,7 +53,13 @@ export default function Projects() {
       className="min-h-screen py-32 px-4 relative flex flex-col justify-center overflow-hidden"
     >
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        <h2 className="text-[var(--accent-primary)] text-sm tracking-[0.2em] uppercase font-bold mb-16 text-center">Selected Works</h2>
+        <div className="text-center mb-16">
+          <BilingualHeader
+            en="SELECTED WORKS"
+            ja="作品"
+            className="text-[var(--accent-primary)] text-sm tracking-[0.2em] uppercase font-bold"
+          />
+        </div>
 
         <div className="flex flex-col">
           {PROJECTS.map((project, index) => (

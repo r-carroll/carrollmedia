@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import BilingualHeader from './bilingual_header';
 import { AiOutlineRuby } from "react-icons/ai";
 import { FaAngular, FaAws, FaChartArea, FaDocker, FaGithub, FaJava, FaJenkins, FaPython, FaReact, FaVuejs } from "react-icons/fa";
 import { SiConcourse, SiDatabricks, SiDatadog, SiExpo, SiGrafana, SiKubernetes, SiNewrelic, SiNumpy, SiOracle, SiSplunk } from "react-icons/si";
@@ -42,8 +43,12 @@ export default function Skills() {
       <div className="absolute inset-0 bg-[var(--bg-primary)] z-0" />
 
       <div className="relative z-10 flex flex-col gap-16">
-        <div className="text-center mb-8">
-          <h2 className="text-[var(--accent-primary)] text-sm tracking-[0.2em] uppercase font-bold mb-2">Technical Proficiency</h2>
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <BilingualHeader
+            en="TECHNICAL ARSENAL"
+            ja="技術"
+            className="text-[var(--accent-primary)] text-sm tracking-[0.2em] uppercase font-bold"
+          />
         </div>
 
         {SKILL_ROWS.map((row, rowIndex) => (

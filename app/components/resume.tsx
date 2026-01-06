@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import BilingualHeader from './bilingual_header';
 
 const JOBS = [
   {
@@ -64,9 +65,13 @@ const JOBS = [
 export default function Resume() {
   return (
     <section id="resume" className="py-24 px-4 max-w-5xl mx-auto relative z-10">
-      <h2 className="text-4xl md:text-6xl font-bold mb-20 text-center font-[family-name:var(--font-syne)] text-[var(--text-primary)]">
-        Professional Experience
-      </h2>
+      <div className="text-center mb-20">
+        <BilingualHeader
+          en="Professional Experience"
+          ja="職務経歴"
+          className="text-4xl md:text-6xl font-bold font-[family-name:var(--font-syne)] text-[var(--text-primary)]"
+        />
+      </div>
 
       <div className="flex flex-col gap-8 md:gap-12">
         {JOBS.map((job, index) => (
