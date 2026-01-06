@@ -1,109 +1,116 @@
 "use client";
 
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import styles from './projects.module.scss';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const PROJECTS = [
+  {
+    title: "TRAVEL BINGO",
+    category: "Mobile App",
+    image: "images/portfolio/bingo-ad.jpeg",
+    link: "https://apps.apple.com/us/app/travel-bingo-road-trip-bingo/id6479892388"
+  },
+  {
+    title: "READING ANALYTICS",
+    category: "Data Visualization",
+    image: "images/portfolio/dash.png",
+    link: "https://smallgroup.carrollmedia.dev/reading-tracker/"
+  },
+  {
+    title: "NOISE DASHBOARD",
+    category: "IoT Environment",
+    image: "images/portfolio/db.png",
+    link: "/decibel-meter" // Internal link
+  },
+  {
+    title: "EUBANKS ELECTRIC",
+    category: "Business Site",
+    image: "images/portfolio/eubanks.JPG",
+    link: "https://eubankselectric.com/"
+  }
+];
 
 export default function Projects() {
-  const responsive = {
-    all: {
-      breakpoint: { max: 3000, min: 0 },
-      items: 1
-    }
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    setMousePosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    });
   };
 
   return (
-    <section id='projects' className="min-h-fit items-center justify-center my-6 text-center">
-      <h1 className="text-2xl font-bold pb-7">Some things I have done</h1>
-      <Carousel
-        responsive={responsive}
-        infinite={true}
-        itemClass={styles.carouselItems}
-        autoPlay={true}
-        autoPlaySpeed={10000}
-      >
-        <div>
-          <a
-            href="https://apps.apple.com/us/app/travel-bingo-road-trip-bingo/id6479892388"
-            target="_blank"
+    <section
+      id='projects'
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      className="min-h-screen py-32 px-4 relative flex flex-col justify-center overflow-hidden"
+    >
+      <div className="max-w-6xl mx-auto w-full relative z-10">
+        <h2 className="text-[var(--accent-primary)] text-sm tracking-[0.2em] uppercase font-bold mb-16 text-center">Selected Works</h2>
+
+        <div className="flex flex-col">
+          {PROJECTS.map((project, index) => (
+            <a
+              key={index}
+              href={project.link}
+              target={project.link.startsWith('/') ? undefined : "_blank"}
+              className="group relative border-t border-[var(--glass-border)] py-12 flex items-center justify-between transition-colors hover:bg-white/5 px-6"
+              onMouseEnter={() => setHoveredProject(index)}
+              onMouseLeave={() => setHoveredProject(null)}
+            >
+              <div className="flex flex-col">
+                <h3 className="text-4xl md:text-7xl font-bold font-[family-name:var(--font-syne)] text-[var(--text-primary)] group-hover:text-transparent group-hover:[-webkit-text-stroke:1px_white] transition-all duration-300">
+                  {project.title}
+                </h3>
+                <span className="text-[var(--text-secondary)] mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  {project.category}
+                </span>
+              </div>
+
+              <span className="hidden md:inline-block text-[var(--text-secondary)] group-hover:text-[var(--accent-primary)] transition-colors text-xl">
+                →
+              </span>
+            </a>
+          ))}
+          <div className="border-t border-[var(--glass-border)]" />
+        </div>
+      </div>
+
+      {/* Floating Image Reveal */}
+      <AnimatePresence>
+        {hoveredProject !== null && (
+          <motion.div
+            className="fixed pointer-events-none z-20 hidden md:block w-[400px] h-[250px] rounded-xl overflow-hidden shadow-2xl border border-[var(--glass-border)]"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              x: mousePosition.x + 20, // Offset from cursor
+              y: mousePosition.y - 125, // Center vertically on cursor
+            }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+            style={{
+              position: 'absolute', // Position absolute relative to the section
+              top: 0,
+              left: 0
+            }}
           >
-            <label htmlFor="travel-bingo" className="mb-2 text-lg">
-              Travel Bingo Mobile App
-            </label>
             <img
-              id="travel-bingo"
-              src="images/portfolio/bingo-ad.jpeg"
-              alt="travel bingo game"
-              className="pb-3"
+              src={PROJECTS[hoveredProject].image}
+              alt={PROJECTS[hoveredProject].title}
+              className="w-full h-full object-cover"
             />
-            <p>
-              For a long time I wanted to build something fun to help pass the
-              time during long road trips on a platform accessible to everyone.
-              Travel Bingo is just that, a way to engage with friends and family
-              while enjoying new environments as you travel. It is built using
-              React Native and can be found on the Google Play Store and Apple
-              App Store
-            </p>
-          </a>
-        </div>
-        <div>
-          <a
-            href="https://smallgroup.carrollmedia.dev/reading-tracker/"
-            target="_blank"
-          >
-            <label htmlFor="reading-time" className="mb-2 text-lg">
-              Reading Time Analytics
-            </label>
-            <img
-              id="reading-time"
-              src="images/portfolio/dash.png"
-              alt="reading dashboard"
-              className="pb-3"
-            />
-            <p>
-              A simple reading analytics dashboard built using Chart.js, Node,
-              and Postgres to visualize reading habits.
-            </p>
-          </a>
-        </div>
-        <div>
-          <a
-            href="/decibel-meter"
-          >
-            <label htmlFor="environmental" className="mb-2 text-lg">
-              Environmental Noise Dashboard
-            </label>
-            <img
-              id="environmental"
-              src="images/portfolio/db.png"
-              alt="environmental noise dashboard"
-              className="pb-3"
-            />
-            <p>
-              As an outdoor enthusiast, I highly value quiet environments. Out
-              of that passion was born a decibel dashboard built using a Raspberry
-              Pi with an Eviro HAT. The sensor data is then saved to InfluxDB
-              and visualized using Grafana.
-            </p>
-          </a>
-        </div>
-        <div>
-          <a href="https://eubankselectric.com/">
-            <label htmlFor="eubanks" className="mb-2 text-lg">
-              Eubanks Electric Redesign
-            </label>
-            <img
-              id="eubanks"
-              src="images/portfolio/eubanks.JPG"
-              alt="Eubanks Electric"
-              className="pb-3"
-            />
-            <p>
-              Website redesign and rebuild for local electricians, Eubanks Electric. Basic HTML with a Square payments integration using Node.
-            </p>
-          </a>
-        </div>
-      </Carousel>
+            <div className="absolute inset-0 bg-black/20" />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

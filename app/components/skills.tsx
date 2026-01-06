@@ -1,158 +1,87 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { AiOutlineRuby } from "react-icons/ai";
-import { FaAngular, FaAws, FaChartArea, FaDocker, FaGithub, FaJava, FaJenkins, FaPython, FaReact, FaRocket, FaVuejs } from "react-icons/fa";
+import { FaAngular, FaAws, FaChartArea, FaDocker, FaGithub, FaJava, FaJenkins, FaPython, FaReact, FaVuejs } from "react-icons/fa";
 import { SiConcourse, SiDatabricks, SiDatadog, SiExpo, SiGrafana, SiKubernetes, SiNewrelic, SiNumpy, SiOracle, SiSplunk } from "react-icons/si";
-import { DiPostgresql, DiSpark } from "react-icons/di";
-import { SlBookOpen } from "react-icons/sl";
+import { DiPostgresql, DiSpark, DiMsqlServer } from "react-icons/di";
 import { VscAzure } from "react-icons/vsc";
-import { DiMsqlServer } from "react-icons/di";
+
+const SKILL_ROWS = [
+  [
+    { name: "React", icon: FaReact },
+    { name: "Vue", icon: FaVuejs },
+    { name: "Angular", icon: FaAngular },
+    { name: "React Native", icon: FaReact },
+    { name: "Expo", icon: SiExpo },
+    { name: "Chart.js", icon: FaChartArea },
+  ],
+  [
+    { name: "Python", icon: FaPython },
+    { name: "Java", icon: FaJava },
+    { name: "Ruby", icon: AiOutlineRuby },
+    { name: "Postgres", icon: DiPostgresql },
+    { name: "SQL Server", icon: DiMsqlServer },
+    { name: "Oracle", icon: SiOracle },
+    { name: "Spark", icon: DiSpark },
+  ],
+  [
+    { name: "AWS", icon: FaAws },
+    { name: "Azure", icon: VscAzure },
+    { name: "Docker", icon: FaDocker },
+    { name: "Kubernetes", icon: SiKubernetes },
+    { name: "Jenkins", icon: FaJenkins },
+    { name: "Datadog", icon: SiDatadog },
+    { name: "Splunk", icon: SiSplunk },
+  ]
+];
 
 export default function Skills() {
   return (
-    <section id="skills" className="items-center justify-center mt-7 text-center">
-      <br />
-      <br />
-      <h1 className="text-2xl font-bold">
-        The skills & tech I use to build fun things
-      </h1>
-      <p>(a little bit of everything. we're talking full-stack after all)</p>
+    <section id="skills" className="py-32 relative overflow-hidden flex flex-col justify-center min-h-[80vh]">
+      <div className="absolute inset-0 bg-[var(--bg-primary)] z-0" />
 
-      <div className="text-sm">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 py-3">
-          <div className="col-span-1 order-last md:order-first lg:order-first xl:order-first p-4 rounded-lg shadow-md flex justify-center">
-            <div>
-              <h2 className="text-xl pb-2">Backend</h2>
-              <div className="flex items-center py-1">
-                <FaJava size={32} />&nbsp;Java
-              </div>
-              <div className="flex items-center py-1">
-                <AiOutlineRuby size={32} />&nbsp;Ruby/Rails
-              </div>
-              <div className="flex items-center py-1">
-                <FaPython size={32} />&nbsp;Python
-              </div>
-            </div>
-          </div>
-          <div className="col-span-1 order-last md:order-first lg:order-first xl:order-first p-4 rounded-lg shadow-md flex justify-center">
-            <div>
-              <h2 className="text-xl pb-2">Data</h2>
-              <div className="flex items-center py-1">
-                <SiDatabricks size={32} />&nbsp;Databricks
-              </div>
-              <div className="flex items-center py-1">
-                <SiNumpy size={32} />&nbsp;Numpy
-              </div>
-              <div className="flex items-center py-1">
-                <DiSpark size={32} />&nbsp;Spark
-              </div>
-              <div className="flex items-center py-1">
-                <DiPostgresql size={32} />&nbsp;Postgres
-              </div>
-              <div className="flex items-center py-1">
-                <SiGrafana size={32} />&nbsp;Grafana
-              </div>
-              <div className="flex items-center py-1">
-                <SiOracle size={32} />&nbsp;Oracle
-              </div>
-              <div className="flex items-center py-1">
-                <DiMsqlServer size={32} />&nbsp;SQL Server
-              </div>
-            </div>
-          </div>
-          <div className="col-span-1 order-last md:order-first lg:order-first xl:order-first p-4 rounded-lg shadow-md flex justify-center">
-            <div>
-              <h2 className="text-xl pb-2">Front End</h2>
-              <div className="flex items-center py-1">
-                <FaReact size={32} />&nbsp;React
-              </div>
-              <div className="flex items-center py-1">
-                <FaAngular size={32} />&nbsp;Angular
-              </div>
-              <div className="flex items-center py-1">
-                <FaVuejs size={32} />&nbsp;Vue
-              </div>
-              <div className="flex items-center py-1">
-                <FaChartArea size={32} />&nbsp;Chart.js
-              </div>
-            </div>
-          </div>
+      <div className="relative z-10 flex flex-col gap-16">
+        <div className="text-center mb-8">
+          <h2 className="text-[var(--accent-primary)] text-sm tracking-[0.2em] uppercase font-bold mb-2">Technical Proficiency</h2>
         </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-          <div className="col-span-1 order-last md:order-first lg:order-first xl:order-first p-4 rounded-lg shadow-md flex justify-center">
-            <div>
-              <h2 className="text-xl pb-2">Mobile</h2>
-              <div className="flex items-center py-1">
-                <FaReact size={32} />&nbsp;React Native
-              </div>
-              <div className="flex items-center py-1">
-                <SiExpo size={32} />&nbsp;Expo
-              </div>
-            </div>
+
+        {SKILL_ROWS.map((row, rowIndex) => (
+          <div key={rowIndex} className="flex relative overflow-hidden">
+            <motion.div
+              className="flex whitespace-nowrap"
+              animate={{ x: rowIndex % 2 === 0 ? [0, -1000] : [-1000, 0] }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 20 + rowIndex * 5, // varied speeds
+                  ease: "linear",
+                },
+              }}
+            >
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="flex">
+                  {row.map((skill, skillIndex) => (
+                    <div
+                      key={skillIndex}
+                      className="group flex items-center mx-8 cursor-default"
+                    >
+                      <span className="text-6xl md:text-8xl font-[family-name:var(--font-syne)] font-bold uppercase transition-all duration-300 text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.2)] group-hover:[-webkit-text-stroke:1px_var(--accent-primary)] group-hover:text-[var(--accent-primary)] group-hover:blur-[0px] hover:scale-110">
+                        {skill.name}
+                      </span>
+                      <skill.icon className="ml-6 text-4xl text-[var(--text-secondary)] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-[var(--accent-primary)]" />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </motion.div>
           </div>
-          <div className="col-span-1 order-last md:order-first lg:order-first xl:order-first p-4 rounded-lg shadow-md flex justify-center">
-            <div>
-              <h2 className="text-xl pb-2">Pipeline</h2>
-              <div className="flex items-center py-1">
-                <SiConcourse size={32} />&nbsp;Concourse
-              </div>
-              <div className="flex items-center py-1">
-                <FaJenkins size={32} />&nbsp;Jenkins
-              </div>
-              <div className="flex items-center py-1">
-                <FaGithub size={32} />&nbsp;GitHub Actions
-              </div>
-            </div>
-          </div>
-          <div className="col-span-1 order-last md:order-first lg:order-first xl:order-first p-4 rounded-lg shadow-md flex justify-center">
-            <div>
-              <h2 className="text-xl pb-2">CNP</h2>
-              <div className="flex items-center py-1">
-                <FaDocker size={32} />&nbsp;Docker
-              </div>
-              <div className="flex items-center py-1">
-                <SiKubernetes size={32} />&nbsp;Kubernetes
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-          <div className="col-span-1 order-last md:order-first lg:order-first xl:order-first p-4 rounded-lg shadow-md flex justify-center">
-            <div>
-              <h2 className="text-xl pb-2">Cloud</h2>
-              <div className="flex items-center py-1">
-                <FaAws size={32} />&nbsp;AWS
-              </div>
-              <div className="flex items-center py-1">
-                <VscAzure size={32} />&nbsp;Azure
-              </div>
-            </div>
-          </div>
-          <div className="col-span-1 order-last md:order-first lg:order-first xl:order-first p-4 rounded-lg shadow-md flex justify-center">
-            <div>
-              <h2 className="text-xl pb-2">Monitoring</h2>
-              <div className="flex items-center py-1">
-                <SiNewrelic size={32} />&nbsp;New Relic
-              </div>
-              <div className="flex items-center py-1">
-                <SiDatadog size={32} />&nbsp;Datadog
-              </div>
-              <div className="flex items-center py-1">
-                <SiSplunk size={32} />&nbsp;Splunk
-              </div>
-            </div>
-          </div>
-          <div className="col-span-1 order-last md:order-first lg:order-first xl:order-first p-4 rounded-lg shadow-md flex justify-center">
-            <div>
-              <h2 className="text-xl pb-2">Analytics</h2>
-              <div className="flex items-center py-1">
-                <SlBookOpen size={32} />&nbsp;Fullstory
-              </div>
-              <div className="flex items-center py-1">
-                <FaRocket size={32} />&nbsp;LogRocket
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
+
+      {/* Gradient fade to smooth transition into Resume video background */}
+      <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-b from-[var(--bg-primary)] to-transparent pointer-events-none z-20" />
     </section>
   );
 }
