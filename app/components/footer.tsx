@@ -1,63 +1,72 @@
-import { FaCode, FaGithub, FaLinkedin } from "react-icons/fa"
-
-function ArrowIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
+import { FaCode, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="mb-16">
-      <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://github.com/r-carroll"
-          >
-            <FaGithub />
-            <p className="ml-2 h-7">github</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://github.com/r-carroll/carrollmedia"
-          >
-            <FaCode />
-            <p className="ml-2 h-7">view source</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://www.linkedin.com/in/carrollmedia/"
-          >
-            <FaLinkedin />
-            <p className="ml-2 h-7">linkedin</p>
-          </a>
-        </li>
-      </ul>
-      <p className="mt-8 text-neutral-600 dark:text-neutral-300">
-        © {new Date().getFullYear()} CarrollMedia
-      </p>
+    <footer className="relative bg-[var(--text-primary)] text-[var(--bg-primary)] px-4 py-20 md:py-32 rounded-t-[2rem] md:rounded-t-[3rem] mt-20 overflow-hidden">
+
+      <div className="max-w-7xl mx-auto flex flex-col justify-between min-h-[50vh]">
+
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8">
+          <div className="flex flex-col">
+            <h2 className="text-6xl md:text-8xl lg:text-9xl font-black font-[family-name:var(--font-syne)] tracking-tighter uppercase leading-[0.85]">
+              Let&apos;s Work
+            </h2>
+            <h2 className="text-6xl md:text-8xl lg:text-9xl font-black font-[family-name:var(--font-syne)] tracking-tighter uppercase leading-[0.85] text-[var(--accent-primary)]">
+              Together
+            </h2>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+            <a
+              href="mailto:ryan@carrollmedia.dev"
+              className="px-8 py-4 rounded-full border-2 border-[var(--bg-primary)] bg-[var(--bg-primary)] text-[var(--text-primary)] font-bold uppercase tracking-widest hover:opacity-80 transition-opacity duration-300 text-center whitespace-nowrap"
+            >
+              Get in touch
+            </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              className="px-8 py-4 rounded-full border-2 border-[var(--bg-primary)] text-[var(--bg-primary)] font-bold uppercase tracking-widest hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] transition-colors duration-300 text-center whitespace-nowrap"
+            >
+              Download CV
+            </a>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-t border-[var(--bg-primary)]/20 pt-12">
+
+          <div className="flex flex-col gap-4">
+            <span className="font-bold uppercase tracking-widest text-sm opacity-50">Socials</span>
+            <div className="flex flex-col gap-2">
+              <a href="https://github.com/r-carroll" target="_blank" className="hover:text-[var(--accent-primary)] transition-colors flex items-center gap-2 font-medium text-lg">
+                <FaGithub /> Github
+              </a>
+              <a href="https://www.linkedin.com/in/carrollmedia/" target="_blank" className="hover:text-[var(--accent-primary)] transition-colors flex items-center gap-2 font-medium text-lg">
+                <FaLinkedin /> LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <span className="font-bold uppercase tracking-widest text-sm opacity-50">Project</span>
+            <div className="flex flex-col gap-2">
+              <a href="https://github.com/r-carroll/carrollmedia" target="_blank" className="hover:text-[var(--accent-primary)] transition-colors flex items-center gap-2 font-medium text-lg">
+                <FaCode /> View Source
+              </a>
+            </div>
+          </div>
+
+          <div className="lg:col-span-2 flex flex-col items-start lg:items-end justify-end">
+            <p className="font-bold text-[var(--bg-primary)]">
+              © {new Date().getFullYear()} CarrollMedia
+            </p>
+            <p className="opacity-60 text-sm mt-2">
+              Designed & Built with Next.js 16, Tailwind, & Framer Motion
+            </p>
+          </div>
+
+        </div>
+      </div>
     </footer>
-  )
+  );
 }

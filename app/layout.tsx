@@ -4,6 +4,7 @@ import { Syne } from 'next/font/google'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Navbar } from './components/nav'
+import { MagicCursor } from './components/cursor'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
@@ -18,13 +19,13 @@ const syne = Syne({
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'CarrollMedia | Premium Software Engineering',
+    default: 'CarrollMedia | Software Engineering',
     template: '%s | CarrollMedia',
   },
   description: 'Portfolio of Ryan Carroll - Senior Software Engineer specializing in cinematic web experiences, scalable systems, and creative development.',
   icons: 'favicon.svg',
   openGraph: {
-    title: 'CarrollMedia | Premium Software Engineering',
+    title: 'CarrollMedia | Software Engineering',
     description: 'Portfolio of Ryan Carroll - Senior Software Engineer specializing in cinematic web experiences and scalable systems.',
     url: baseUrl,
     siteName: 'CarrollMedia',
@@ -41,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CarrollMedia | Premium Software Engineering',
-    description: 'Portfolio of Ryan Carroll - Building cinematic web experiences.',
+    title: 'CarrollMedia | Software Engineering',
+    description: 'Portfolio of Ryan Carroll',
     images: ['/og'],
   },
   robots: {
@@ -78,6 +79,7 @@ export default function RootLayout({
       <body className="antialiased w-full mx-auto min-h-screen">
         <main className="flex-auto min-w-0 flex flex-col">
           <Navbar />
+          <MagicCursor />
           {children}
           <Footer />
           <Analytics />
