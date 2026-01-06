@@ -228,3 +228,13 @@ table {
 .title {
   text-wrap: balance;
 }
+
+/* Hides scrollbar but allows scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
