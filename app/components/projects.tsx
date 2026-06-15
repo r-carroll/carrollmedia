@@ -6,6 +6,12 @@ import BilingualHeader from './bilingual_header';
 
 const PROJECTS = [
   {
+    title: "OMIKUJI AI",
+    category: "Natural Language Processing",
+    image: "images/portfolio/omikuji.svg",
+    link: "/omikuji"
+  },
+  {
     title: "TRAVEL BINGO",
     category: "Mobile App",
     image: "images/portfolio/bingo-ad.jpeg",
