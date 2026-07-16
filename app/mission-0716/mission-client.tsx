@@ -720,12 +720,10 @@ function Letter() {
         <div className="mt-5 font-[family-name:var(--font-caveat)] text-[1.65rem] leading-snug">
           <p>Rebecca —</p>
           <p className="mt-4">
-            Ten thousand fortunes could fall out of that box, and every single one would say the
-            same thing: I&apos;m the lucky one.
+            Fictional or real, you are the hero of my story and our family. Ruby and I are so lucky to have you. If I was watching this, I'd ship us and I think we make a pretty good team.
           </p>
           <p className="mt-4">
-            Happy birthday. Dinner&apos;s on me, the music&apos;s on the orchestra, and the whole
-            evening is yours.
+            Happy birthday. I love you so much, and I'm looking forward to the rest of the story we get to write together.
           </p>
           <p className="mt-6 text-3xl">— Ryan</p>
         </div>
