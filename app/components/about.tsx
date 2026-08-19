@@ -38,7 +38,7 @@ function Paragraph({ value }: { value: string }) {
 }
 
 export default function About() {
-  const introText = "I'm so glad you've taken the time to pay me a visit. I love putting software and technology to work solving fun and interesting problems both at work and in my personal life. I believe that tackling problems with technology can be a fun and rewarding experience. I have been a full-stack software engineer for over 10 years working primarily with APIs and web stacks. When I'm not coding, you can find me enjoying the peace and grounding of the great outdoors hiking, camping, and kayaking.";
+  const introText = "I'm so glad you've taken the time to pay me a visit. I'm a lead engineer with ten years of APIs and web systems behind me, across Ohio insurance and healthcare. On my own time I ship mobile, offline-first software and the occasional machine-learning model I had no business deploying, and those side projects are where I collect the failures worth talking about. When I'm not coding, you can find me enjoying the peace and grounding of the great outdoors hiking, camping, and kayaking.";
 
   return (
     <section id="about" className="min-h-screen flex items-center justify-center py-32 px-4 relative overflow-hidden bg-[var(--bg-primary)]">

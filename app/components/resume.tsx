@@ -5,9 +5,20 @@ import BilingualHeader from './bilingual_header';
 
 const JOBS = [
   {
+    company: "Form Health",
+    role: "Lead Software Engineer",
+    period: "2026 - present",
+    color: "#fe4700",
+    details: [
+      "Build and debug complex asynchronous data workflows (Sidekiq)",
+      "Integrate third-party healthcare systems, expanding data for reporting and product features",
+      "Drive new client wins through rapid prototyping of data-informed features"
+    ]
+  },
+  {
     company: "CoverMyMeds",
     role: "Senior Software Engineer",
-    period: "2022 - present",
+    period: "2022 - 2026",
     color: "#e70865",
     details: [
       "Delivered research document and schema/data pipeline PoC for migrating on-prem data pipeline to Databricks with plan to increase data throughput by 50%",
@@ -91,7 +102,7 @@ export default function Resume() {
             <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-6 relative z-10">
               <h3
                 className="text-2xl md:text-4xl font-bold font-[family-name:var(--font-syne)] mb-2 md:mb-0"
-                style={{ color: job.color === "#e70865" ? "var(--accent-primary)" : "var(--text-primary)" }}
+                style={{ color: index === 0 ? job.color : "var(--text-primary)" }}
               >
                 {job.company}
               </h3>

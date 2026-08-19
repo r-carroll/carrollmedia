@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     default: 'CarrollMedia | Software Engineering',
     template: '%s | CarrollMedia',
   },
-  description: 'Portfolio of Ryan Carroll - Senior Software Engineer specializing in cinematic web experiences, scalable systems, and creative development.',
+  description: 'Portfolio of Ryan Carroll - Lead Engineer specializing in cinematic web experiences, scalable systems, and creative development.',
   icons: 'favicon.svg',
   openGraph: {
     title: 'CarrollMedia | Software Engineering',
-    description: 'Portfolio of Ryan Carroll - Senior Software Engineer specializing in cinematic web experiences and scalable systems.',
+    description: 'Portfolio of Ryan Carroll - Lead Engineer specializing in cinematic web experiences and scalable systems.',
     url: baseUrl,
     siteName: 'CarrollMedia',
     locale: 'en_US',
