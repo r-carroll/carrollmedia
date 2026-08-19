@@ -6,6 +6,7 @@ const navItems = {
   '/#projects': { name: 'Projects' },
   '/#skills': { name: 'Skills' },
   '/#resume': { name: 'Resume' },
+  '/#education': { name: 'Education' },
 }
 
 export function Navbar() {

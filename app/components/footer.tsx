@@ -24,7 +24,7 @@ export default function Footer() {
               Get in touch
             </a>
             <a
-              href="/resume.pdf"
+              href="/Ryan_Carroll_Resume.pdf"
               target="_blank"
               className="px-6 py-3 md:px-8 md:py-4 rounded-full border-2 border-[var(--bg-primary)] text-[var(--bg-primary)] font-bold uppercase tracking-widest hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] transition-colors duration-300 text-center text-sm md:text-base"
             >
