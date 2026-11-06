@@ -1,0 +1,110 @@
+/* CarrollMedia — motion. This is the identity.
+ *
+ * Most sites fade. Ours CUTS. Eight named moves and nothing else:
+ *
+ *   Cut      80ms steps(1)   the house signature — labels, meta, facts
+ *   Rise     380ms decel     display type and headlines
+ *   Wipe     720ms decel     footage only, from the centre line
+ *   Draw     520ms decel     section rules, left to right
+ *   Push     14s             the slow scale on every aerial plate
+ *   Stagger  70ms/line       rise down a group, capped at six
+ *   Count    900ms cubic-out numbers, on entry, once
+ *   Tally    1.6s steps      the record dot, live states only
+ *
+ * Interface moves in hard cuts. Only footage is allowed slow motion. Anything
+ * slower than 380ms that is not a photograph or the tally light is a bug.
+ */
+
+:root {
+  --duration-cut: 80ms; /* @kind other */
+  --duration-reveal: 380ms; /* @kind other */
+  --duration-draw: 520ms; /* @kind other */
+  --duration-count: 900ms; /* @kind other */
+  --duration-cinematic: 720ms; /* @kind other */
+  --duration-bar: 900ms; /* @kind other */
+  --duration-push: 14s; /* @kind other */
+  --duration-tally: 1.6s; /* @kind other */
+
+  --stagger-step: 70ms; /* @kind other */
+  --stagger-max: 6; /* @kind other */
+
+  --ease-cut: steps(1, end); /* @kind other */
+  --ease-decel: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+
+  --rise-distance: 0.42em; /* @kind other */
+  --push-scale: 1.075; /* @kind other */
+}
+
+@keyframes cm-cut { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cm-rise { from { opacity: 0; transform: translateY(var(--rise-distance)); } to { opacity: 1; transform: none; } }
+@keyframes cm-wipe { from { clip-path: inset(50% 0 50% 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes cm-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes cm-push { from { transform: scale(1.001); } to { transform: scale(var(--push-scale)); } }
+@keyframes cm-tally { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0.28; } }
+
+/* Reveal contract: elements sit at opacity 0 and animate when the host adds
+ * [data-in] (IntersectionObserver). Collapsed-at-rest defaults mean that
+ * killing the animation can never leave a bar covering the page.
+ */
+[data-reveal] { opacity: 0; }
+[data-reveal][data-in] { opacity: 1; }
+[data-reveal='cut'][data-in] { animation: cm-cut var(--duration-cut) var(--ease-cut) both; }
+[data-reveal='rise'][data-in] { animation: cm-rise var(--duration-reveal) var(--ease-decel) both; }
+[data-reveal='wipe'][data-in] { animation: cm-wipe var(--duration-cinematic) var(--ease-decel) both; }
+[data-reveal='draw'][data-in] { animation: cm-draw var(--duration-draw) var(--ease-decel) both; transform-origin: left center; }
+
+[data-stagger][data-in] > * { animation: cm-rise var(--duration-reveal) var(--ease-decel) both; }
+[data-stagger][data-in] > *:nth-child(2) { animation-delay: calc(var(--stagger-step) * 1); }
+[data-stagger][data-in] > *:nth-child(3) { animation-delay: calc(var(--stagger-step) * 2); }
+[data-stagger][data-in] > *:nth-child(4) { animation-delay: calc(var(--stagger-step) * 3); }
+[data-stagger][data-in] > *:nth-child(5) { animation-delay: calc(var(--stagger-step) * 4); }
+[data-stagger][data-in] > *:nth-child(6) { animation-delay: calc(var(--stagger-step) * 5); }
+
+.cm-plate[data-in] { animation: cm-push var(--duration-push) var(--ease-standard) both; }
+
+/* Letterbox bars are NOT driven from here. They are a load-time move and they
+ * are collapsed at rest, so a scroll observer can neither measure them (zero-area
+ * transformed box) nor time them (the bottom bar of a tall masthead is below the
+ * fold). AerialPlate transitions them on mount instead — see that component.
+ *
+ * This rest state stays as a SAFETY DEFAULT and must not be deleted. Current
+ * AerialPlate does not use the class, but anything still emitting .cm-bar (an
+ * older compiled bundle, a consumer's own markup) needs a collapsed default:
+ * without it those bars default to transform:none at full height and sit opaque
+ * over the plate forever, hiding the footage. Bars must always fail OPEN. */
+.cm-bar { transform: scaleY(0); }
+
+/* The tally light. Only on genuinely live or recording states. */
+.cm-tally { animation: cm-tally var(--duration-tally) steps(1, end) infinite; }
+
+/* Cut belongs on animation, never on transition — steps(1,end) on a
+ * transition latches the stale frame and the element appears not to move.
+ */
+
+/* Observer trap: collapsed-at-rest targets (wipe is clipped to inset(50% 0))
+ * have a zero-area transformed box, and IntersectionObserver measures the
+ * transformed box. Observe them at threshold 0 and rely on isIntersecting — any
+ * non-zero threshold is unreachable and they never fire. A load-time move should
+ * not be observed at all; own it in the component.
+ */
+.cm-cut-transition { transition: background var(--duration-cut) linear, color var(--duration-cut) linear, opacity var(--duration-cut) linear; }
+
+[data-reduce-motion] [data-reveal],
+[data-reduce-motion] [data-stagger] > * {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  clip-path: none !important;
+}
+[data-reduce-motion] .cm-plate, [data-reduce-motion] .cm-tally { animation: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal], [data-stagger] > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  .cm-plate, .cm-tally { animation: none !important; }
+}

@@ -1,0 +1,115 @@
+{
+  "rules": {
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "@/components/core/**",
+              "@/components/media/**",
+              "@/components/sales/**",
+              "@/components/chrome/**"
+            ],
+            "message": "Import design-system components from '@/components', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Archivo|Geist|Geist Mono))/i]",
+        "message": "Font not provided by the design system. Available: Archivo, Geist, Geist Mono."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AerialPlate'] > JSXAttribute > JSXIdentifier[name!=/^(?:src|video|videoSmall|height|grade|bars|slate|children|style|key|ref|className)$/]",
+        "message": "<AerialPlate> doesn't accept that prop. Declared props: src, video, videoSmall, height, grade, bars, slate, children, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AerialPlate'] > JSXAttribute[name.name='grade'] > Literal[value!=/^(?:plate|strip|case)$/]",
+        "message": "<AerialPlate> grade must be one of 'plate' | 'strip' | 'case'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|href|disabled|children|style|key|ref|className)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, size, href, disabled, children, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:action|outline|solid|ghost)$/]",
+        "message": "<Button> variant must be one of 'action' | 'outline' | 'solid' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CallStrip'] > JSXAttribute > JSXIdentifier[name!=/^(?:phone|note|secondary|style|key|ref|className)$/]",
+        "message": "<CallStrip> doesn't accept that prop. Declared props: phone, note, secondary, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FrameMark'] > JSXAttribute > JSXIdentifier[name!=/^(?:frame|tally|tone|style|key|ref|className)$/]",
+        "message": "<FrameMark> doesn't accept that prop. Declared props: frame, tally, tone, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FrameMark'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:dim|mute|signal|record)$/]",
+        "message": "<FrameMark> tone must be one of 'dim' | 'mute' | 'signal' | 'record'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HoverPlateList'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|style|key|ref)$/]",
+        "message": "<HoverPlateList> doesn't accept that prop. Declared props: items, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Letterbox'] > JSXAttribute > JSXIdentifier[name!=/^(?:src|grade|caption|note|style|key|ref|className)$/]",
+        "message": "<Letterbox> doesn't accept that prop. Declared props: src, grade, caption, note, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Letterbox'] > JSXAttribute[name.name='grade'] > Literal[value!=/^(?:plate|strip|case)$/]",
+        "message": "<Letterbox> grade must be one of 'plate' | 'strip' | 'case'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PriceCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|who|price|cadence|includes|featured|style|key|ref|className)$/]",
+        "message": "<PriceCard> doesn't accept that prop. Declared props: name, who, price, cadence, includes, featured, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RegisterCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|sector|swatch|note|style|key|ref|className)$/]",
+        "message": "<RegisterCard> doesn't accept that prop. Declared props: name, sector, swatch, note, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ScopeRow'] > JSXAttribute > JSXIdentifier[name!=/^(?:frame|title|body|meta|href|style|key|ref|className)$/]",
+        "message": "<ScopeRow> doesn't accept that prop. Declared props: frame, title, body, meta, href, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ScopeStrip'] > JSXAttribute > JSXIdentifier[name!=/^(?:src|height|timecode|style|key|ref|className)$/]",
+        "message": "<ScopeStrip> doesn't accept that prop. Declared props: src, height, timecode, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionSlate'] > JSXAttribute > JSXIdentifier[name!=/^(?:frame|label|meta|rule|animate|style|key|ref|className)$/]",
+        "message": "<SectionSlate> doesn't accept that prop. Declared props: frame, label, meta, rule, animate, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Stat'] > JSXAttribute > JSXIdentifier[name!=/^(?:value|display|suffix|label|key|ref|className)$/]",
+        "message": "<Stat> doesn't accept that prop. Declared props: value, display, suffix, label."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute > JSXIdentifier[name!=/^(?:tone|children|style|key|ref|className)$/]",
+        "message": "<Tag> doesn't accept that prop. Declared props: tone, children, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:default|signal|record|concept)$/]",
+        "message": "<Tag> tone must be one of 'default' | 'signal' | 'record' | 'concept'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='WorkCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:frame|client|sector|status|image|register|href|style|key|ref|className)$/]",
+        "message": "<WorkCard> doesn't accept that prop. Declared props: frame, client, sector, status, image, register, href, style."
+      }
+    ]
+  }
+}

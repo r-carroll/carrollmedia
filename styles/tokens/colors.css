@@ -1,0 +1,77 @@
+/* CarrollMedia — color.
+ *
+ * One brand color: RECORD RED. It is the tally light on a camera. It marks
+ * three things and nothing else: the one action on a view, the live/recording
+ * state, and the active item in navigation. Everything else is achromatic
+ * chrome or footage.
+ *
+ * Why red and why only one: the studio serves a roofer and a security firm in
+ * the same quarter. A palette would fight every client we take. A single
+ * tally light reads as camera hardware, not as decoration.
+ */
+
+:root {
+  /* Achromatic ramp — the whole chrome */
+  --ink: #08080A;        /* page ground */
+  --surface: #0F0F11;    /* alternating section ground */
+  --raise: #16161A;      /* cards sitting above surface */
+  --line: #232327;       /* solid hairline */
+  --dim: #5A5A62;        /* mono labels only — never sentences */
+  --mute: #8A8A93;       /* secondary body copy */
+  --signal: #E4E4E7;     /* primary text, hairline strokes */
+  --paper: #F4F4F5;      /* light-register ground */
+  --white: #FFFFFF;
+
+  /* Hairlines are alpha, so they hold over footage as well as flat ground */
+  --line-soft: rgba(228, 228, 231, 0.11);
+  --line-softer: rgba(228, 228, 231, 0.08);
+  --line-strong: rgba(228, 228, 231, 0.3);
+
+  /* The tally light — the one hue we own */
+  --record: #FF3B18;
+  --record-hot: #FF5636;      /* hover */
+  --record-text: #FF7A60;     /* record-as-text on ink = 5.1:1 */
+  --record-dim: rgba(255, 59, 24, 0.18);
+
+  /* Semantic aliases */
+  --color-background: var(--ink);
+  --color-surface: var(--surface);
+  --color-card: var(--raise);
+  --color-foreground: var(--signal);
+  --color-muted-foreground: var(--mute);
+  --color-dim-foreground: var(--dim);
+  --color-border: var(--line-soft);
+  --color-border-strong: var(--line-strong);
+  --color-muted: var(--raise);          /* image wells, empty grounds */
+
+  --color-action: var(--record);
+  --color-action-hover: var(--record-hot);
+  --color-action-text: var(--record-text);
+  --color-action-foreground: var(--ink); /* ink on #FF3B18 = 5.55:1; white would be 3.56:1 */
+  --color-action-wash: var(--record-dim);
+
+  /* Client registers — applied per project, never to our own chrome */
+  --register-trades: #C25A22;
+  --register-security: #38E0C0;
+  --register-practice: #4C7DF0;
+
+  /* Footage grades */
+  --grade-plate: grayscale(100%) contrast(1.12) brightness(0.52); /* @kind other */
+  --grade-strip: grayscale(100%) brightness(0.72); /* @kind other */
+  --grade-case: none; /* @kind other */
+  --plate-scrim: linear-gradient(to top, var(--ink) 4%, rgba(8, 8, 10, 0.55) 46%, rgba(8, 8, 10, 0.3) 100%); /* @kind other */
+  --plate-scrim-soft: linear-gradient(to top, rgba(8, 8, 10, 0.9) 0%, rgba(8, 8, 10, 0.15) 70%); /* @kind other */
+}
+
+/* The light register — the one inversion the system allows (medical, practices) */
+[data-register='light'] {
+  --color-background: var(--paper);
+  --color-surface: var(--white);
+  --color-card: var(--white);
+  --color-foreground: #141A24;
+  --color-muted-foreground: #5B6472;
+  --color-dim-foreground: #7C889B;
+  --color-border: rgba(20, 26, 36, 0.12);
+  --color-border-strong: rgba(20, 26, 36, 0.32);
+  --color-muted: #E8EAEF;
+}

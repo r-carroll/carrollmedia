@@ -1,12 +1,9 @@
+import type { MetadataRoute } from 'next'
+import { site } from '@/lib/site'
 
-export const baseUrl = 'https://carrollmedia.dev'
+const routes = ['', '/work', '/work/tradely', '/pricing', '/about', '/labs']
 
-export default async function sitemap() {
-
-  let routes = ['', '/blog', '/decibel-meter'].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString().split('T')[0],
-  }))
-
-  return [...routes]
+export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date().toISOString().split('T')[0]
+  return routes.map((route) => ({ url: `${site.url}${route}`, lastModified }))
 }
