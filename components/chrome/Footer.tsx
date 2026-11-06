@@ -18,6 +18,8 @@ export function Footer() {
           <a href={`mailto:${site.email}`} className="cm-link">{site.email.toUpperCase()}</a>
           <br />
           TRADELY — A CARROLLMEDIA PRODUCT
+          <br />
+          <a href="/privacy" className="cm-link">PRIVACY</a>
         </div>
       </div>
     </footer>
