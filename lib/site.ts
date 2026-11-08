@@ -3,7 +3,7 @@ export const site = {
   url: 'https://carrollmedia.dev',
   legacyUrl: 'https://old.carrollmedia.dev',
   description:
-    'Web design, software and aerial video for local businesses. Columbus, Ohio. You own the domain, the code and the hosting account.',
+    'Websites, Google Business Profile management and software for local businesses in Columbus, Ohio, with drone video in-house. You own the domain, the code and the hosting.',
   phone: '(937) 553-1132',
   email: 'ryan@carrollmedia.dev',
 } as const
