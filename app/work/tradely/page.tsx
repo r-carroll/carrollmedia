@@ -39,7 +39,7 @@ export default function TradelyCasePage() {
               Tradely started because the same problem kept coming up in discovery: the estimate lives in a truck, the schedule lives in a phone, and the invoice lives in someone&apos;s head until Friday. We're building the lead, the site visit and the estimate as one thing, and putting it in front of real crews on real jobs before charging anyone for it.
             </p>
             <p className="text-body" style={{ color: 'var(--color-muted-foreground)', margin: 'var(--space-lg) 0 0', maxWidth: 'var(--copy-measure)' }}>
-              It sits under CarrollMedia as a product, not a side project. That is the argument for hiring us on a website: the same people who ship your marketing site also ship production software, in pilots with three central Ohio crews today.
+              It sits under CarrollMedia as a product, not a side project. That is the argument for hiring us on a website: the same people who ship your marketing site also ship production software, in pilots with a roofer and an electrician in central Ohio today.
             </p>
           </div>
           <StatBlock
@@ -47,7 +47,7 @@ export default function TradelyCasePage() {
             stats={[
               { value: 10, suffix: ' yrs', label: 'Engineering behind it' },
               { display: 'Pilot', label: 'Status' },
-              { display: '3', label: 'Crews piloting it' },
+              { display: '2', label: 'Crews piloting it' },
               { display: 'Offline', label: 'Works without signal' },
             ]}
           />
