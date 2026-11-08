@@ -26,6 +26,12 @@ export default function PricingPage() {
         <p className="text-body-lg" style={{ color: 'var(--color-muted-foreground)', margin: 'var(--space-lg) 0 0', maxWidth: 'var(--copy-measure)' }}>
           Pick a build, add what you need, and the total is right there. Half up front, half at launch, and nothing to pay if you leave us later.
         </p>
+        <div className="cm-row" style={{ gap: 'var(--space-md)', marginTop: 'var(--space-2xl)', alignItems: 'center' }}>
+          <Tag tone="signal">{usd(carePlan.buildDiscount)} OFF</Tag>
+          <p className="text-body" style={{ color: 'var(--color-foreground)', margin: 0 }}>
+            Take the care and search plan and any build is {usd(carePlan.buildDiscount)} less. {usd(carePlan.price)} a month, cancel anytime.
+          </p>
+        </div>
         {!pricesConfirmed ? (
           <div className="cm-row" style={{ gap: 'var(--space-md)', marginTop: 'var(--space-2xl)' }}>
             <Tag tone="concept">PLACEHOLDER PRICES</Tag>

@@ -58,14 +58,28 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
           ))}
         </Group>
 
-        <Group legend="2. Where is the business?" hint="PICK ONE">
+        {/* Second, not last: the plan changes the build price, so it sits
+         * next to the build it discounts. */}
+        <Group legend={`2. Take ${usd(care.buildDiscount)} off`} hint="WITH THE MONTHLY PLAN">
+          <Choice
+            type="checkbox"
+            checked={caring}
+            onChange={() => setCaring((on) => !on)}
+            title={care.name}
+            body={care.body}
+            price={`+${usd(care.price)} / MO`}
+            note={`${usd(care.buildDiscount)} OFF THE BUILD`}
+          />
+        </Group>
+
+        <Group legend="3. Where is the business?" hint="PICK ONE">
           <div className="cm-builder__pair">
             <Choice type="radio" name={`${name}-where`} checked={local} onChange={() => setLocal(true)} title="Central Ohio" />
             <Choice type="radio" name={`${name}-where`} checked={!local} onChange={() => setLocal(false)} title="Somewhere else" />
           </div>
         </Group>
 
-        <Group legend="3. Get found" hint="ADD ANY">
+        <Group legend="4. Get found" hint="ADD ANY">
           {addOns.map((a) => (
             <Choice
               key={a.id}
@@ -79,7 +93,7 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
           ))}
         </Group>
 
-        <Group legend="4. Photos and drone" hint={shootIncluded ? 'INCLUDED' : 'PICK ONE'}>
+        <Group legend="5. Photos and drone" hint={shootIncluded ? 'INCLUDED' : 'PICK ONE'}>
           {shootIncluded ? (
             <div className="cm-choice cm-choice--on cm-choice--locked">
               <span className="cm-choice__box cm-choice__box--check" aria-hidden="true" />
@@ -120,7 +134,7 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
           )}
         </Group>
 
-        <Group legend="5. Already have a site?" hint="OPTIONAL">
+        <Group legend="6. Already have a site?" hint="OPTIONAL">
           <Choice
             type="checkbox"
             checked={picked.includes(migration.id)}
@@ -131,17 +145,6 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
           />
         </Group>
 
-        <Group legend="6. Want us to run it?" hint="OPTIONAL / MONTHLY">
-          <Choice
-            type="checkbox"
-            checked={caring}
-            onChange={() => setCaring((on) => !on)}
-            title={care.name}
-            body={care.body}
-            price={`+${usd(care.price)} / MO`}
-            note={`${usd(care.buildDiscount)} OFF THE BUILD`}
-          />
-        </Group>
       </div>
 
       {/* Under the 940px break the summary sits below the options, so the
@@ -173,6 +176,14 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
             </span>
           ) : null}
         </div>
+        {!caring ? (
+          <button type="button" className="cm-builder__nudge cm-cut-transition" onClick={() => setCaring(true)}>
+            <span className="text-num cm-builder__nudge-amount">{usd(total - care.buildDiscount)}</span>
+            <span className="text-label">
+              WITH THE PLAN / {usd(care.buildDiscount)} OFF / ADD IT
+            </span>
+          </button>
+        ) : null}
         {caring ? (
           <p className="text-body-sm cm-builder__promise">
             Leave in the first {months} months and you pay the rest of the regular build price. After that, the discount is yours.
