@@ -32,3 +32,7 @@ export function frameNumber(frame: number | string) {
  * third-party policy asks agencies to link it from their site and send it to
  * each client in writing (WEB-141). */
 export const googleThirdPartyHref = 'https://support.google.com/business/answer/7353941'
+
+/* Client sites open in a new tab so the visitor keeps their place here. */
+export const externalLink = (href: string) =>
+  /^https?:\/\//.test(href) ? { target: '_blank', rel: 'noopener noreferrer' } : {}

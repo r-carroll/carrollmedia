@@ -74,8 +74,8 @@ export default function HomePage() {
         <HoverPlateList
           items={[
             { frame: 301, title: 'Tradely', meta: 'PRODUCT — FIELD SERVICE', href: '/work/tradely', image: '/work/tradely-sm.jpg' },
-            { frame: 302, title: 'Last Call Roofing', meta: 'LIVE — ROOFING + TRADELY', href: '/work', image: '/work/last-call-sm.jpg' },
-            { frame: 303, title: 'Eubanks Electric', meta: 'LIVE — ELECTRICAL', href: '/work', image: '/work/eubanks-sm.jpg' },
+            { frame: 302, title: 'Last Call Roofing', meta: 'LIVE — ROOFING + TRADELY', href: 'https://lastcallroofingoh.com', image: '/work/last-call-sm.jpg' },
+            { frame: 303, title: 'Eubanks Electric', meta: 'LIVE — ELECTRICAL', href: 'https://eubankselectric.com', image: '/work/eubanks-sm.jpg' },
             { frame: 304, title: 'Sec/Ops', meta: 'CONCEPT — SECURITY', href: '/work', image: '/aerial/reservoir-dusk-sm.jpg' },
           ]}
         />

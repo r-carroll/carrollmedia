@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { CSSProperties } from 'react'
-import { cx } from '@/lib/site'
+import { cx, externalLink } from '@/lib/site'
 import { FrameMark } from '../core/FrameMark'
 
 /* next/image needs a literal media query here; a token can't stand in. */
@@ -48,7 +48,7 @@ export function WorkCard({ frame, client, sector, status = 'Live', image, regist
   )
 
   if (href) {
-    return <Link href={href} className="cm-work-card cm-cut-transition" style={style}>{content}</Link>
+    return <Link href={href} {...externalLink(href)} className="cm-work-card cm-cut-transition" style={style}>{content}</Link>
   }
   return <article className="cm-work-card" style={style}>{content}</article>
 }

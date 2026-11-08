@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useRef, type CSSProperties, type MouseEvent } from 'react'
 import { FrameMark } from '../core/FrameMark'
+import { externalLink } from '@/lib/site'
 
 export type HoverPlateItem = {
   frame: number | string
@@ -61,6 +62,7 @@ export function HoverPlateList({ items, style }: HoverPlateListProps) {
         <Link
           key={item.title}
           href={item.href}
+          {...externalLink(item.href)}
           className="cm-scope-row cm-cut-transition"
           onMouseEnter={() => show(item)}
           onFocus={(e) => {
