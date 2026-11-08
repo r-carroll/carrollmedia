@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <>
-      <Section frame={100} label="Work" meta={'FIVE ENTRIES\nONE LIVE'}>
+      <Section frame={100} label="Work" meta={'SIX ENTRIES\nTWO LIVE'}>
         <h1 className="text-h1" style={{ margin: 0, maxWidth: '20ch' }}>Built, shipped, and labelled honestly.</h1>
         <p className="text-body-lg" style={{ color: 'var(--color-muted-foreground)', margin: 'var(--space-lg) 0 0', maxWidth: 'var(--copy-measure)' }}>
           Concept work is marked concept every time, without being asked. The studio is young; the engineering behind it is not.
@@ -19,11 +19,12 @@ export default function WorkPage() {
 
       <Section frame={200} label="Index" ground="surface">
         <div className="cm-autogrid">
-          <WorkCard frame={201} client="Tradely" sector="Field-service software — a CarrollMedia product" status="Product" register="var(--register-trades)" image="/aerial/jobsite-excavator.jpg" href="/work/tradely" />
-          <WorkCard frame={202} client="Eubanks Electric" sector="Electrical — Columbus OH" status="Live" register="var(--register-trades)" image="/aerial/transmission-tower.jpg" />
-          <WorkCard frame={203} client="Pegasus Roofing" sector="Roofing — Hilliard OH" status="Concept" register="var(--register-trades)" image="/aerial/rooftops.jpg" />
-          <WorkCard frame={204} client="Sec/Ops" sector="Cybersecurity — remote" status="Concept" register="var(--register-security)" image="/aerial/reservoir-dusk.jpg" />
-          <WorkCard frame={205} client="Bexley Family Dental" sector="Dental practice — Bexley OH" status="Concept" register="var(--register-practice)" />
+          <WorkCard frame={201} client="Tradely" sector="Field-service software — a CarrollMedia product" status="Product" register="var(--register-trades)" image="/work/tradely.jpg" href="/work/tradely" />
+          <WorkCard frame={202} client="Last Call Roofing" sector="Roofing — Plain City OH. Site, search and Tradely" status="Live" register="var(--register-trades)" image="/work/last-call.jpg" />
+          <WorkCard frame={203} client="Eubanks Electric" sector="Electrical — Marysville OH" status="Live" register="var(--register-trades)" image="/work/eubanks.jpg" />
+          <WorkCard frame={204} client="Pegasus Roofing" sector="Roofing — Hilliard OH" status="Concept" register="var(--register-trades)" image="/aerial/rooftops.jpg" />
+          <WorkCard frame={205} client="Sec/Ops" sector="Cybersecurity — remote" status="Concept" register="var(--register-security)" image="/aerial/reservoir-dusk.jpg" />
+          <WorkCard frame={206} client="Bexley Family Dental" sector="Dental practice — Bexley OH" status="Concept" register="var(--register-practice)" />
         </div>
       </Section>
 

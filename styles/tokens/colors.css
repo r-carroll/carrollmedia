@@ -56,10 +56,10 @@
   --register-practice: #4C7DF0;
 
   /* Footage grades */
-  --grade-plate: grayscale(100%) contrast(1.12) brightness(0.52); /* @kind other */
+  --grade-plate: grayscale(100%) contrast(1.12) brightness(0.65); /* @kind other */
   --grade-strip: grayscale(100%) brightness(0.72); /* @kind other */
   --grade-case: none; /* @kind other */
-  --plate-scrim: linear-gradient(to top, var(--ink) 4%, rgba(8, 8, 10, 0.55) 46%, rgba(8, 8, 10, 0.3) 100%); /* @kind other */
+  --plate-scrim: linear-gradient(to top, var(--ink) 0%, rgba(8, 8, 10, 0.4) 40%, rgba(8, 8, 10, 0.15) 100%); /* @kind other */
   --plate-scrim-soft: linear-gradient(to top, rgba(8, 8, 10, 0.9) 0%, rgba(8, 8, 10, 0.15) 70%); /* @kind other */
 }
 

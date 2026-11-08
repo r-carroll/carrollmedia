@@ -27,7 +27,7 @@ export const builds: Build[] = [
     id: 'one-page',
     name: 'One page',
     who: 'One scroll: what you do, where you work, proof, and a number to call.',
-    price: 1500,
+    price: 1750,
     weeks: '1 WK',
     shootIncluded: false,
   },
@@ -91,21 +91,37 @@ export const shoots: AddOn[] = [
   { id: 'both', name: 'Photo and drone day', body: 'Both, in one half-day visit.', price: 900 },
 ]
 
+export type Plan = AddOn & {
+  includes: string[]
+  /* Taken off any build when the client takes the plan. */
+  buildDiscount: number
+}
+
 /* Optional and monthly. The accounts stay in the client's name either way:
- * this pays for running the site, never for keeping access to it. */
-export const carePlan = {
+ * this pays for running the site, never for keeping access to it.
+ *
+ * Taking the plan takes buildDiscount off the build. Cancelling is still a
+ * phone call, but the discount is earned month by month: leave before it is
+ * earned and the client pays the rest of the regular build price. */
+export const carePlan: Plan = {
   id: 'care',
-  name: 'Care plan',
-  body: 'We keep it running: monitoring, updates, small edits and renewals. Cancel anytime and everything stays yours.',
+  name: 'Care and search plan',
+  body: 'We keep it running and keep you findable: updates, small edits, renewals and your Google Business Profile. Cancel anytime and everything stays yours.',
   price: 150,
+  buildDiscount: 750,
   includes: [
     'Uptime monitoring, and we fix it when it goes down',
     'Security and software updates',
     'Up to an hour of small edits a month',
     'Domain and hosting renewals watched, including an expiring card',
+    'Your Google Business Profile kept current: hours, photos and posts',
+    'Your name, address and phone checked so they match on every listing',
     'A short monthly report: calls, messages, and where people found you',
   ],
 }
+
+/* Months of the plan it takes to earn the build discount. */
+export const discountMonths = (plan: Plan) => Math.ceil(plan.buildDiscount / plan.price)
 
 export const software = {
   dayRate: 900,

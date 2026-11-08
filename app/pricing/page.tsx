@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { CallStrip, PriceBuilder, ScopeRow, ScopeStrip, Section, StatBlock, Tag } from '@/components'
-import { builds, carePlan, findAddOns, migration, pricesConfirmed, shoots, software, thirdParty, usd } from '@/lib/pricing'
-import { callNote, frameNumber, site } from '@/lib/site'
+import { builds, carePlan, discountMonths, findAddOns, migration, pricesConfirmed, shoots, software, thirdParty, usd } from '@/lib/pricing'
+import { frameNumber, site } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Pricing',
@@ -104,7 +104,10 @@ export default function PricingPage() {
           <div>
             <h3 className="text-h2" style={{ margin: 0, maxWidth: '18ch' }}>Or let us run it.</h3>
             <p className="text-body" style={{ color: 'var(--color-muted-foreground)', margin: 'var(--space-md) 0 var(--space-lg)', maxWidth: 'var(--copy-measure-tight)' }}>
-              You own it; we look after it. We&apos;re added as an admin on your accounts, and you pay us to run the site, never to keep access to it. Cancel with a phone call.
+              You own it; we look after it and keep you findable on Google. We&apos;re added as an admin on your accounts, and you pay us to run the site, never to keep access to it. Cancel with a phone call.
+            </p>
+            <p className="text-body" style={{ color: 'var(--color-foreground)', margin: '0 0 var(--space-lg)', maxWidth: 'var(--copy-measure-tight)' }}>
+              Take the plan and any build is {usd(carePlan.buildDiscount)} less. Leave in the first {discountMonths(carePlan)} months and you pay the rest of the regular build price.
             </p>
             <div className="cm-row" style={{ alignItems: 'baseline', gap: 'var(--space-sm)' }}>
               <span className="text-num" style={{ fontSize: 'var(--text-5xl)', lineHeight: 1, color: 'var(--color-foreground)' }}>{usd(carePlan.price)}</span>
@@ -128,7 +131,7 @@ export default function PricingPage() {
           <p className="text-body" style={{ color: 'var(--color-muted-foreground)', margin: 'var(--space-md) 0 var(--space-xl)' }}>
             Thirty minutes with your site up on the screen. You tell us what a good job is worth and which ones you&apos;d rather stop taking; we tell you what&apos;s standing in the way. You leave with a one-page scope and the number on it, whether or not you hire us.
           </p>
-          <CallStrip note={callNote} secondary={`OR ${site.email.toUpperCase()}`} />
+          <CallStrip email />
         </div>
       </Section>
     </>

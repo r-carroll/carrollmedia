@@ -51,8 +51,8 @@
         "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
       },
       {
-        "selector": "JSXOpeningElement[name.name='CallStrip'] > JSXAttribute > JSXIdentifier[name!=/^(?:phone|note|secondary|style|key|ref|className)$/]",
-        "message": "<CallStrip> doesn't accept that prop. Declared props: phone, note, secondary, style."
+        "selector": "JSXOpeningElement[name.name='CallStrip'] > JSXAttribute > JSXIdentifier[name!=/^(?:phone|note|email|style|key|ref|className)$/]",
+        "message": "<CallStrip> doesn't accept that prop. Declared props: phone, note, email, style."
       },
       {
         "selector": "JSXOpeningElement[name.name='FrameMark'] > JSXAttribute > JSXIdentifier[name!=/^(?:frame|tally|tone|style|key|ref|className)$/]",

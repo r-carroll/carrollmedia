@@ -10,7 +10,7 @@ const archivo = Archivo({ subsets: ['latin'], weight: ['600', '700', '800'], var
 const geist = Geist({ subsets: ['latin'], weight: ['300', '400', '500'], variable: '--font-geist', display: 'swap' })
 const geistMono = Geist_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-geist-mono', display: 'swap' })
 
-const title = 'CarrollMedia — Websites that book jobs, not compliments'
+const title = 'CarrollMedia — Columbus web design for local businesses'
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

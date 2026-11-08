@@ -2,7 +2,7 @@
 
 import { useId, useState, type CSSProperties, type ReactNode } from 'react'
 import { cx } from '@/lib/site'
-import { usd, type AddOn, type Build } from '@/lib/pricing'
+import { discountMonths, usd, type AddOn, type Build, type Plan } from '@/lib/pricing'
 import { CallStrip } from './CallStrip'
 
 export type PriceBuilderProps = {
@@ -10,7 +10,7 @@ export type PriceBuilderProps = {
   addOns: AddOn[]
   shoots: AddOn[]
   migration: AddOn
-  care: AddOn
+  care: Plan
   style?: CSSProperties
 }
 
@@ -30,8 +30,10 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
   const shootIncluded = local && build.shootIncluded
   const shoot = shootIncluded ? undefined : shoots.find((s) => s.id === shootId)
   const chosen = [...addOns, migration].filter((a) => picked.includes(a.id))
-  const total = build.price + chosen.reduce((sum, a) => sum + a.price, 0) + (shoot?.price ?? 0)
+  const discount = caring ? care.buildDiscount : 0
+  const total = build.price + chosen.reduce((sum, a) => sum + a.price, 0) + (shoot?.price ?? 0) - discount
   const half = Math.ceil(total / 2)
+  const months = discountMonths(care)
 
   const toggle = (id: string) =>
     setPicked((ids) => (ids.includes(id) ? ids.filter((x) => x !== id) : [...ids, id]))
@@ -137,6 +139,7 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
             title={care.name}
             body={care.body}
             price={`+${usd(care.price)} / MO`}
+            note={`${usd(care.buildDiscount)} OFF THE BUILD`}
           />
         </Group>
       </div>
@@ -158,6 +161,7 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
           {chosen.map((a) => <Line key={a.id} label={a.name} value={`+${usd(a.price)}`} />)}
           {shootIncluded ? <Line label="Photo and drone day" value="INCLUDED" /> : null}
           {shoot ? <Line label={shoot.name} value={`+${usd(shoot.price)}`} /> : null}
+          {caring ? <Line label="With the plan" value={`−${usd(discount)}`} /> : null}
         </ul>
         <div className="cm-builder__total" aria-live="polite" aria-atomic="true">
           <span className="text-overline" style={{ color: 'var(--color-dim-foreground)' }}>TOTAL</span>
@@ -165,10 +169,15 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
           {caring ? (
             <span className="cm-builder__monthly">
               <span className="text-num">then {usd(care.price)} / mo</span>
-              <span className="text-label">CARE PLAN / CANCEL ANYTIME</span>
+              <span className="text-label">CARE AND SEARCH / CANCEL ANYTIME</span>
             </span>
           ) : null}
         </div>
+        {caring ? (
+          <p className="text-body-sm cm-builder__promise">
+            Leave in the first {months} months and you pay the rest of the regular build price. After that, the discount is yours.
+          </p>
+        ) : null}
         <div className="cm-builder__terms">
           <span className="text-label">{usd(half)} UP FRONT</span>
           <span className="text-label">{usd(total - half)} AT LAUNCH</span>
@@ -177,7 +186,7 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
         <p className="text-body-sm cm-builder__promise">
           On the call this becomes one number on a one-page scope, and it doesn&apos;t move unless you change the scope. Most people over-buy. We&apos;ll tell you what to drop.
         </p>
-        <CallStrip note="CALL ABOUT THIS BUILD / 30 MINUTES" />
+        <CallStrip note="ABOUT THIS BUILD / 30 MINUTES" />
       </aside>
     </div>
   )
