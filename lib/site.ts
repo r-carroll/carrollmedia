@@ -27,3 +27,8 @@ export function cx(...classes: Array<string | false | null | undefined>) {
 export function frameNumber(frame: number | string) {
   return `[${String(frame).padStart(4, '0')}]`
 }
+
+/* Google's notice for businesses whose profile an agency manages. Its
+ * third-party policy asks agencies to link it from their site and send it to
+ * each client in writing (WEB-141). */
+export const googleThirdPartyHref = 'https://support.google.com/business/answer/7353941'

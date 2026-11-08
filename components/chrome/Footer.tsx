@@ -1,4 +1,4 @@
-import { site } from '@/lib/site'
+import { googleThirdPartyHref, site } from '@/lib/site'
 import { Wordmark } from './Wordmark'
 
 /* The footer states ownership plainly. */
@@ -20,6 +20,8 @@ export function Footer() {
           TRADELY — A CARROLLMEDIA PRODUCT
           <br />
           <a href="/privacy" className="cm-link">PRIVACY</a>
+          <br />
+          <a href={googleThirdPartyHref} className="cm-link" target="_blank" rel="noopener noreferrer">GOOGLE: WORKING WITH A THIRD PARTY</a>
         </div>
       </div>
     </footer>

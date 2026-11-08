@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { CallStrip, PriceBuilder, ScopeRow, ScopeStrip, Section, StatBlock, Tag } from '@/components'
 import { builds, carePlan, discountMonths, findAddOns, migration, pricesConfirmed, shoots, software, thirdParty, usd } from '@/lib/pricing'
-import { frameNumber, site } from '@/lib/site'
+import { frameNumber, googleThirdPartyHref, site } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Pricing',
@@ -114,14 +114,21 @@ export default function PricingPage() {
               <span className="text-label" style={{ color: 'var(--color-dim-foreground)' }}>/ MO / OPTIONAL / CANCEL ANYTIME</span>
             </div>
           </div>
-          <ul className="cm-price__includes" style={{ margin: 0, padding: 0, border: 0 }}>
-            {carePlan.includes.map((line) => (
-              <li key={line} className="cm-price__line">
-                <span className="text-num cm-price__dash" aria-hidden="true">—</span>
-                <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>{line}</span>
-              </li>
-            ))}
-          </ul>
+          <div>
+            <ul className="cm-price__includes" style={{ margin: 0, padding: 0, border: 0 }}>
+              {carePlan.includes.map((line) => (
+                <li key={line} className="cm-price__line">
+                  <span className="text-num cm-price__dash" aria-hidden="true">—</span>
+                  <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>{line}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-body-sm" style={{ color: 'var(--color-muted-foreground)', margin: 'var(--space-lg) 0 0' }}>
+              Your Business Profile is free from Google; the plan is our fee for managing it. You stay the owner and add us as a manager. Google&apos;s notice on{' '}
+              <a href={googleThirdPartyHref} className="cm-link" target="_blank" rel="noopener noreferrer">working with a third party</a>{' '}
+              explains what that means.
+            </p>
+          </div>
         </div>
       </Section>
 
