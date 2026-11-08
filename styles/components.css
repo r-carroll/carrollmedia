@@ -1066,3 +1066,114 @@ a.cm-work-card:focus-visible {
 .cm-builder__bar-monthly {
   color: var(--color-muted-foreground);
 }
+
+/* ------------------------------------------------------------------ Labs */
+
+/* Labs carries the Japanese accent from the founder's original portfolio.
+ * Archivo has no kana or kanji, so these fall through to the system's
+ * Japanese face. Founder and Labs pages only, never the sales path. */
+.cm-labs-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-4xl);
+  align-items: start;
+}
+
+.cm-labs-mark {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+}
+
+.cm-labs-kanji {
+  writing-mode: vertical-rl;
+  font-size: clamp(88px, 11vw, 168px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--color-border-strong);
+}
+
+.cm-labs-reading {
+  writing-mode: vertical-rl;
+  color: var(--color-dim-foreground);
+  letter-spacing: 0.2em;
+}
+
+/* A red seal, the one spot of record colour on the page. */
+.cm-hanko {
+  display: inline-grid;
+  place-items: center;
+  writing-mode: vertical-rl;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--record);
+  border-radius: 4px;
+  color: var(--record-text);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.cm-labs-trio {
+  list-style: none;
+  margin: var(--space-3xl) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: var(--hairline) solid var(--color-border);
+}
+
+.cm-labs-trio > li {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl) var(--space-xl) 0 0;
+}
+
+.cm-labs-trio > li + li {
+  padding-left: var(--space-xl);
+  border-left: var(--hairline) solid var(--color-border);
+}
+
+.cm-labs-trio__kanji {
+  font-size: var(--display-sub);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+  color: var(--color-foreground);
+}
+
+@media (max-width: 940px) {
+  .cm-labs-hero {
+    gap: var(--space-lg);
+  }
+
+  .cm-labs-kanji {
+    font-size: 64px;
+  }
+
+  .cm-labs-reading {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .cm-labs-kanji {
+    font-size: 44px;
+  }
+
+  .cm-labs-trio {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cm-labs-trio > li,
+  .cm-labs-trio > li + li {
+    padding: var(--space-lg) 0;
+    border-left: 0;
+  }
+
+  .cm-labs-trio > li + li {
+    border-top: var(--hairline) solid var(--color-border);
+  }
+}

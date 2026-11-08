@@ -13,7 +13,7 @@ export default function WorkPage() {
       <Section frame={100} label="Work" meta={'SIX ENTRIES\nTWO LIVE'}>
         <h1 className="text-h1" style={{ margin: 0, maxWidth: '20ch' }}>Built, shipped, and labelled honestly.</h1>
         <p className="text-body-lg" style={{ color: 'var(--color-muted-foreground)', margin: 'var(--space-lg) 0 0', maxWidth: 'var(--copy-measure)' }}>
-          Concept work is marked concept every time, without being asked. The studio is young; the engineering behind it is not.
+          Live means a business runs on it today; click through and see. Concept means we built it to try a direction. Every card says which.
         </p>
       </Section>
 

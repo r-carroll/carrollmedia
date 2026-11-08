@@ -5,9 +5,6 @@ const legacy = 'https://old.carrollmedia.dev'
 /* Pages and files from the original portfolio now live on the legacy site.
  * Temporary redirects keep old links working without committing to them. */
 const legacyPaths = [
-  '/decibel-meter',
-  '/omikuji',
-  '/react-native',
   '/mission-0716',
   '/Ryan_Carroll_Resume.pdf',
   '/DIY-IoT.pdf',
@@ -21,6 +18,12 @@ const nextConfig: NextConfig = {
       ...legacyPaths.map((source) => ({
         source,
         destination: `${legacy}${source}`,
+        permanent: false,
+      })),
+      /* The old project pages are entries on Labs now. */
+      ...['/decibel-meter', '/omikuji', '/react-native'].map((source) => ({
+        source,
+        destination: '/labs',
         permanent: false,
       })),
       /* Services and pricing are one page. */
