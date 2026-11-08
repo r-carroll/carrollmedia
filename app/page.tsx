@@ -60,7 +60,7 @@ export default function HomePage() {
           </p>
         </div>
         <div className="cm-scope-list">
-          <ScopeRow frame={201} href="/pricing" title="A site that books jobs" body={`Four builds, from one clean page to agency grade with a design system. Take the monthly care and search plan and any build is ${usd(carePlan.buildDiscount)} less.`} meta={`FROM ${usd(withPlan)} WITH THE PLAN`} />
+          <ScopeRow frame={201} href="/pricing" title="A site that books jobs" body={`Four builds, from one clean page to agency grade. Take the monthly care and search plan and any build is ${usd(carePlan.buildDiscount)} less.`} meta={`FROM ${usd(withPlan)} WITH THE PLAN`} />
           <ScopeRow frame={202} href="/pricing" title="Show up on Google" body="Your Google Business Profile, a page for every town you serve, and the listings people check next: Apple Maps, Bing, Yelp. Then kept current every month on the plan." meta="PROFILE SETUP FREE WITH THE PLAN" />
           <ScopeRow frame={203} href="/pricing" title="Photos and drone" body="We fly. Your crews and job sites from the ground and the air, not a stock library. Included with Standard and up in central Ohio." meta={`INCLUDED OR FROM ${usd(lowest(shoots))}`} />
           <ScopeRow frame={204} href="/work/tradely" title="Custom software" body="Leads, site visits, estimates and contracts, on a phone in the sun. It's what we build for Tradely, and what we build for you when a website isn't the answer." meta={`${usd(software.dayRate)} / DAY`} />

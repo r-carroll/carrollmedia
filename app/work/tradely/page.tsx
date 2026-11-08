@@ -3,6 +3,8 @@ import type { CSSProperties } from 'react'
 import { AerialPlate, Button, Letterbox, ScopeRow, Section, StatBlock, Tag } from '@/components'
 import { callHref } from '@/lib/site'
 
+const tradelyHref = 'https://tradely.work'
+
 export const metadata: Metadata = {
   title: 'Tradely',
   description: 'Field-service software for the trades. Built and run by CarrollMedia.',
@@ -24,6 +26,9 @@ export default function TradelyCasePage() {
         <p className="text-body-lg" style={{ color: 'var(--color-foreground)', margin: 'var(--space-md) 0 0', maxWidth: '44ch' }}>
           Field-service software for the trades. Built and run by CarrollMedia.
         </p>
+        <div style={{ marginTop: 'var(--space-2xl)' }}>
+          <Button variant="outline" size="lg" href={tradelyHref}>Visit tradely.work</Button>
+        </div>
       </AerialPlate>
 
       <Section frame={100} label="The brief" meta={'FULL COLOUR\nTHE UNGRADED SHOT\nIS THE PROOF'}>
@@ -41,9 +46,9 @@ export default function TradelyCasePage() {
             columns={2}
             stats={[
               { value: 10, suffix: ' yrs', label: 'Engineering behind it' },
-              { display: 'Live', label: 'Status' },
-              { display: '3', label: 'Modules shipped' },
-              { display: 'Own', label: 'Design system' },
+              { display: 'Pilot', label: 'Status' },
+              { display: '3', label: 'Crews piloting it' },
+              { display: 'Offline', label: 'Works without signal' },
             ]}
           />
         </div>
@@ -51,17 +56,21 @@ export default function TradelyCasePage() {
 
       <Section frame={200} label="What shipped" ground="surface">
         <div className="cm-scope-list">
-          <ScopeRow frame={201} title="Scheduling" body="Dispatch, crew assignment and a day view a foreman can read on a phone in the sun." meta="SHIPPED" />
-          <ScopeRow frame={202} title="Estimating" body="Line-item estimates that turn into invoices without being retyped." meta="SHIPPED" />
-          <ScopeRow frame={203} title="Follow-up" body="Reminders and review requests that office staff will actually use." meta="SHIPPED" />
+          <ScopeRow frame={201} title="Leads" body="Every lead in one pipeline, including the ones from your website. Paste a text or a note and it becomes a lead with the name, address and job filled in." meta="SHIPPED" />
+          <ScopeRow frame={202} title="Site visits" body="Satellite roof area, photos matched to the property, and a voice debrief that turns into notes. Works with no signal." meta="SHIPPED" />
+          <ScopeRow frame={203} title="Estimates and contracts" body="Line-item estimates sent as a PDF, accepted or declined by the customer, then turned into a contract." meta="SHIPPED" />
+          <ScopeRow frame={204} title="Jobs" body="Won work tracked through to done, with a dashboard that says what needs you today." meta="SHIPPED" />
         </div>
-        <Letterbox style={{ marginTop: 'var(--space-3xl)' }} caption="PRODUCT SCREENS LIVE IN THE TRADELY DESIGN SYSTEM — NOT DUPLICATED HERE." />
+        <Letterbox style={{ marginTop: 'var(--space-3xl)' }} src="/work/tradely-wide.jpg" grade="case" caption="LEADS PIPELINE, A LEAD, AND THE DASHBOARD — DEMO DATA" />
       </Section>
 
       <Section frame={300} label="Next" meta="ONE ACTION">
         <div style={{ display: 'flex', gap: 'var(--space-2xl)', alignItems: 'center', flexWrap: 'wrap' }}>
           <h2 className="text-h1" style={{ margin: 0, maxWidth: '16ch' }}>Want the same engineering on your site?</h2>
-          <Button variant="action" size="lg" href={callHref}>Talk to us</Button>
+          <div className="cm-row" style={{ gap: 'var(--space-sm)' }}>
+            <Button variant="action" size="lg" href={callHref}>Talk to us</Button>
+            <Button variant="outline" size="lg" href={tradelyHref}>tradely.work</Button>
+          </div>
         </div>
       </Section>
     </>
