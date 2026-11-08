@@ -21,7 +21,12 @@ export type AddOn = {
   name: string
   body: string
   price: number
+  /* Free when the client takes the care and search plan. */
+  includedWithPlan?: boolean
 }
+
+/* What every build comes with, so none of it is sold as an extra. */
+export const everyBuild = 'Every build includes speed, schema and the search basics Google reads, and moving off your current site.'
 
 export const builds: Build[] = [
   {
@@ -64,12 +69,13 @@ export const findAddOns: AddOn[] = [
     name: 'Google Business Profile',
     body: 'Set up and tuned: categories, service areas, photos and a review link your office will use.',
     price: 400,
+    includedWithPlan: true,
   },
   {
-    id: 'seo',
-    name: 'Search setup',
-    body: 'The technical work Google reads: speed, schema, and a page for each area you serve.',
-    price: 600,
+    id: 'towns',
+    name: 'Town pages',
+    body: 'A page for each town you serve, up to eight, so you show up when people search nearby.',
+    price: 500,
   },
   {
     id: 'listings',
@@ -78,13 +84,6 @@ export const findAddOns: AddOn[] = [
     price: 350,
   },
 ]
-
-export const migration: AddOn = {
-  id: 'migration',
-  name: 'Moving off your current site',
-  body: 'Content, redirects, domain and DNS moved to accounts in your name.',
-  price: 500,
-}
 
 export const shoots: AddOn[] = [
   { id: 'photo', name: 'Photo day', body: 'Half a day on site. Your crews, trucks and finished work.', price: 600 },
@@ -115,7 +114,7 @@ export const carePlan: Plan = {
     'Security and software updates',
     'Up to an hour of small edits a month',
     'Domain and hosting renewals watched, including an expiring card',
-    'Your Google Business Profile kept current: hours, photos and posts',
+    'Your Google Business Profile set up, then kept current: hours, photos and posts',
     'Your name, address and phone checked so they match on every listing',
     'A short monthly report: calls, messages, and where people found you',
   ],

@@ -2,14 +2,13 @@
 
 import { useId, useState, type CSSProperties, type ReactNode } from 'react'
 import { cx } from '@/lib/site'
-import { discountMonths, usd, type AddOn, type Build, type Plan } from '@/lib/pricing'
+import { discountMonths, everyBuild, usd, type AddOn, type Build, type Plan } from '@/lib/pricing'
 import { CallStrip } from './CallStrip'
 
 export type PriceBuilderProps = {
   builds: Build[]
   addOns: AddOn[]
   shoots: AddOn[]
-  migration: AddOn
   care: Plan
   style?: CSSProperties
 }
@@ -18,7 +17,7 @@ export type PriceBuilderProps = {
  * only action is the phone number, and the call turns this total into a fixed
  * one-page scope. The photo and drone day comes with Standard and up for
  * central Ohio businesses; anywhere else it is an add-on. */
-export function PriceBuilder({ builds, addOns, shoots, migration, care, style }: PriceBuilderProps) {
+export function PriceBuilder({ builds, addOns, shoots, care, style }: PriceBuilderProps) {
   const name = useId()
   const [buildId, setBuildId] = useState(builds[1]?.id ?? builds[0].id)
   const [local, setLocal] = useState(true)
@@ -29,9 +28,14 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
   const build = builds.find((b) => b.id === buildId) ?? builds[0]
   const shootIncluded = local && build.shootIncluded
   const shoot = shootIncluded ? undefined : shoots.find((s) => s.id === shootId)
-  const chosen = [...addOns, migration].filter((a) => picked.includes(a.id))
+  const free = (a: AddOn) => caring && a.includedWithPlan
+  const chosen = addOns.filter((a) => picked.includes(a.id) && !free(a))
+  const planIncludes = caring ? addOns.filter((a) => a.includedWithPlan) : []
   const discount = caring ? care.buildDiscount : 0
   const total = build.price + chosen.reduce((sum, a) => sum + a.price, 0) + (shoot?.price ?? 0) - discount
+  /* What the plan would take off right now: the discount, plus any picked
+   * add-on the plan includes. */
+  const planSaving = care.buildDiscount + chosen.filter((a) => a.includedWithPlan).reduce((sum, a) => sum + a.price, 0)
   const half = Math.ceil(total / 2)
   const months = discountMonths(care)
 
@@ -56,6 +60,7 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
               note={local && b.shootIncluded ? 'PHOTO AND DRONE DAY INCLUDED' : undefined}
             />
           ))}
+          <p className="text-body-sm cm-builder__aside">{everyBuild}</p>
         </Group>
 
         {/* Second, not last: the plan changes the build price, so it sits
@@ -80,17 +85,29 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
         </Group>
 
         <Group legend="4. Get found" hint="ADD ANY">
-          {addOns.map((a) => (
-            <Choice
-              key={a.id}
-              type="checkbox"
-              checked={picked.includes(a.id)}
-              onChange={() => toggle(a.id)}
-              title={a.name}
-              body={a.body}
-              price={`+${usd(a.price)}`}
-            />
-          ))}
+          {addOns.map((a) =>
+            free(a) ? (
+              <div key={a.id} className="cm-choice cm-choice--on cm-choice--locked">
+                <span className="cm-choice__box cm-choice__box--check" aria-hidden="true" />
+                <span className="cm-choice__text">
+                  <span className="text-h3 cm-choice__title">{a.name}</span>
+                  <span className="text-body-sm cm-choice__body">{a.body}</span>
+                </span>
+                <span className="text-label cm-choice__price">WITH THE PLAN</span>
+              </div>
+            ) : (
+              <Choice
+                key={a.id}
+                type="checkbox"
+                checked={picked.includes(a.id)}
+                onChange={() => toggle(a.id)}
+                title={a.name}
+                body={a.body}
+                price={`+${usd(a.price)}`}
+                note={a.includedWithPlan ? 'INCLUDED WITH THE PLAN' : undefined}
+              />
+            ),
+          )}
         </Group>
 
         <Group legend="5. Photos and drone" hint={shootIncluded ? 'INCLUDED' : 'PICK ONE'}>
@@ -134,16 +151,6 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
           )}
         </Group>
 
-        <Group legend="6. Already have a site?" hint="OPTIONAL">
-          <Choice
-            type="checkbox"
-            checked={picked.includes(migration.id)}
-            onChange={() => toggle(migration.id)}
-            title={migration.name}
-            body={migration.body}
-            price={`+${usd(migration.price)}`}
-          />
-        </Group>
 
       </div>
 
@@ -162,6 +169,7 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
         <ul className="cm-builder__lines">
           <Line label={build.name} value={usd(build.price)} />
           {chosen.map((a) => <Line key={a.id} label={a.name} value={`+${usd(a.price)}`} />)}
+          {planIncludes.map((a) => <Line key={a.id} label={a.name} value="WITH THE PLAN" />)}
           {shootIncluded ? <Line label="Photo and drone day" value="INCLUDED" /> : null}
           {shoot ? <Line label={shoot.name} value={`+${usd(shoot.price)}`} /> : null}
           {caring ? <Line label="With the plan" value={`−${usd(discount)}`} /> : null}
@@ -178,10 +186,8 @@ export function PriceBuilder({ builds, addOns, shoots, migration, care, style }:
         </div>
         {!caring ? (
           <button type="button" className="cm-builder__nudge cm-cut-transition" onClick={() => setCaring(true)}>
-            <span className="text-num cm-builder__nudge-amount">{usd(total - care.buildDiscount)}</span>
-            <span className="text-label">
-              WITH THE PLAN / {usd(care.buildDiscount)} OFF / ADD IT
-            </span>
+            <span className="text-num cm-builder__nudge-amount">{usd(total - planSaving)}</span>
+            <span className="text-label">SAVE {usd(planSaving)} WITH THE PLAN →</span>
           </button>
         ) : null}
         {caring ? (

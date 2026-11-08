@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { CallStrip, PriceBuilder, ScopeRow, ScopeStrip, Section, StatBlock, Tag } from '@/components'
-import { builds, carePlan, discountMonths, findAddOns, migration, pricesConfirmed, shoots, software, thirdParty, usd } from '@/lib/pricing'
+import { builds, carePlan, discountMonths, findAddOns, pricesConfirmed, shoots, software, thirdParty, usd } from '@/lib/pricing'
 import { frameNumber, googleThirdPartyHref, site } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default function PricingPage() {
         <div className="cm-row" style={{ gap: 'var(--space-md)', marginTop: 'var(--space-2xl)', alignItems: 'center' }}>
           <Tag tone="signal">{usd(carePlan.buildDiscount)} OFF</Tag>
           <p className="text-body" style={{ color: 'var(--color-foreground)', margin: 0 }}>
-            Take the care and search plan and any build is {usd(carePlan.buildDiscount)} less. {usd(carePlan.price)} a month, cancel anytime.
+            Take the care and search plan and any build is {usd(carePlan.buildDiscount)} less, with your Google Business Profile set up free. {usd(carePlan.price)} a month, cancel anytime.
           </p>
         </div>
         {!pricesConfirmed ? (
@@ -43,7 +43,7 @@ export default function PricingPage() {
       </Section>
 
       <Section frame={200} label="Build your price" ground="surface" meta={'NOTHING SENT\nNO FORM'}>
-        <PriceBuilder builds={builds} addOns={findAddOns} shoots={shoots} migration={migration} care={carePlan} />
+        <PriceBuilder builds={builds} addOns={findAddOns} shoots={shoots} care={carePlan} />
       </Section>
 
       <ScopeStrip src="/aerial/reservoir-treeline.jpg" timecode="00:01:14:08" />
