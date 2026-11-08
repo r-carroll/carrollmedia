@@ -51,7 +51,7 @@ export default function FounderPage() {
         <div className="cm-scope-list" style={{ marginTop: 'var(--space-2xl)' }}>
           <ScopeRow frame={201} title="Lead software engineer — insurance" body="Claims and policy systems. Ten years of shipping software that other people's money depends on." meta="2015 — 2025" />
           <ScopeRow frame={202} title="Healthcare platform work" body="Patient-facing systems under audit. Where the habit of writing things down came from." meta="CONTRACT" />
-          <ScopeRow frame={203} title="Founder — Tradely" body="Field-service software for the trades. A CarrollMedia product, live with real customers." meta="2024 — PRESENT" />
+          <ScopeRow frame={203} title="Founder — Tradely" body="Field-service software for the trades. A CarrollMedia product, in free pilots with three central Ohio crews: a roofer, an electrician and a tree crew." meta="2024 — PRESENT" />
           <ScopeRow frame={204} title="Founder — CarrollMedia" body="Web design, software and aerial video for local businesses in central Ohio." meta="PRESENT" />
         </div>
       </Section>

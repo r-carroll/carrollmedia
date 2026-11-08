@@ -31,10 +31,10 @@ export default function TradelyCasePage() {
           <div>
             <h2 className="text-h2" style={{ margin: 0, maxWidth: '22ch' }}>A contractor&apos;s day does not fit in a spreadsheet.</h2>
             <p className="text-body" style={{ color: 'var(--color-muted-foreground)', margin: 'var(--space-lg) 0 0', maxWidth: 'var(--copy-measure)' }}>
-              Tradely started because the same problem kept coming up in discovery: the estimate lives in a truck, the schedule lives in a phone, and the invoice lives in someone&apos;s head until Friday. We built scheduling, estimating and follow-up as one thing, then ran it against real jobs before selling it to anyone.
+              Tradely started because the same problem kept coming up in discovery: the estimate lives in a truck, the schedule lives in a phone, and the invoice lives in someone&apos;s head until Friday. We built scheduling, estimating and follow-up as one thing, then put it in front of real crews on real jobs before charging anyone for it.
             </p>
             <p className="text-body" style={{ color: 'var(--color-muted-foreground)', margin: 'var(--space-lg) 0 0', maxWidth: 'var(--copy-measure)' }}>
-              It sits under CarrollMedia as a product, not a side project. That is the argument for hiring us on a website: the same people who ship your marketing site also ship production software with real customers on it.
+              It sits under CarrollMedia as a product, not a side project. That is the argument for hiring us on a website: the same people who ship your marketing site also ship production software, in pilots with three central Ohio crews today.
             </p>
           </div>
           <StatBlock
