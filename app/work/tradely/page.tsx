@@ -36,7 +36,7 @@ export default function TradelyCasePage() {
           <div>
             <h2 className="text-h2" style={{ margin: 0, maxWidth: '22ch' }}>A contractor&apos;s day does not fit in a spreadsheet.</h2>
             <p className="text-body" style={{ color: 'var(--color-muted-foreground)', margin: 'var(--space-lg) 0 0', maxWidth: 'var(--copy-measure)' }}>
-              Tradely started because the same problem kept coming up in discovery: the estimate lives in a truck, the schedule lives in a phone, and the invoice lives in someone&apos;s head until Friday. We built scheduling, estimating and follow-up as one thing, then put it in front of real crews on real jobs before charging anyone for it.
+              Tradely started because the same problem kept coming up in discovery: the estimate lives in a truck, the schedule lives in a phone, and the invoice lives in someone&apos;s head until Friday. We're building the lead, the site visit and the estimate as one thing, and putting it in front of real crews on real jobs before charging anyone for it.
             </p>
             <p className="text-body" style={{ color: 'var(--color-muted-foreground)', margin: 'var(--space-lg) 0 0', maxWidth: 'var(--copy-measure)' }}>
               It sits under CarrollMedia as a product, not a side project. That is the argument for hiring us on a website: the same people who ship your marketing site also ship production software, in pilots with three central Ohio crews today.
@@ -54,12 +54,12 @@ export default function TradelyCasePage() {
         </div>
       </Section>
 
-      <Section frame={200} label="What shipped" ground="surface">
+      <Section frame={200} label="Where it stands" ground="surface" meta={'TWO SHIPPED\nTWO IN BUILD'}>
         <div className="cm-scope-list">
-          <ScopeRow frame={201} title="Leads" body="Every lead in one pipeline, including the ones from your website. Paste a text or a note and it becomes a lead with the name, address and job filled in." meta="SHIPPED" />
+          <ScopeRow frame={201} title="Leads" body="Every lead in one pipeline, including the ones from your website. Paste a text or a note and it becomes a lead with the name, address and job filled in. A dashboard says what needs you today." meta="SHIPPED" />
           <ScopeRow frame={202} title="Site visits" body="Satellite roof area, photos matched to the property, and a voice debrief that turns into notes. Works with no signal." meta="SHIPPED" />
-          <ScopeRow frame={203} title="Estimates and contracts" body="Line-item estimates sent as a PDF, accepted or declined by the customer, then turned into a contract." meta="SHIPPED" />
-          <ScopeRow frame={204} title="Jobs" body="Won work tracked through to done, with a dashboard that says what needs you today." meta="SHIPPED" />
+          <ScopeRow frame={203} title="Estimates and contracts" body="Line-item estimates sent as a PDF, accepted or declined by the customer, then turned into a contract." meta="IN BUILD" />
+          <ScopeRow frame={204} title="Jobs" body="Won work tracked through to done." meta="IN BUILD" />
         </div>
         <Letterbox style={{ marginTop: 'var(--space-3xl)' }} src="/work/tradely-wide.jpg" grade="case" caption="LEADS PIPELINE, A LEAD, AND THE DASHBOARD — DEMO DATA" />
       </Section>
