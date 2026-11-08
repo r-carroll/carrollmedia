@@ -1,7 +1,7 @@
+node_modules/
+.next/
+*.tsbuildinfo
+.vercel
+.DS_Store
 css/
 js/
-node_modules/*
-**.DS_Store
-.DS_Store
-
-.next/
