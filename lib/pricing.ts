@@ -1,8 +1,9 @@
 /* Every published price lives here so the builder, the pricing page and any
  * "from" figure elsewhere read one source.
  *
- * TODO: these are placeholders until the central Ohio market research is back.
- * While pricesConfirmed is false the pricing page says so above the builder. */
+ * Set against what we actually quote, not the market ceiling: Last Call
+ * Roofing's Standard-plus-search build was a $750 pilot rate. While
+ * pricesConfirmed is false the pricing page says so above the builder. */
 export const pricesConfirmed = true
 
 export type Build = {
@@ -27,7 +28,7 @@ export const builds: Build[] = [
     id: 'one-page',
     name: 'One page',
     who: 'One scroll: what you do, where you work, proof, and a number to call.',
-    price: 1750,
+    price: 1250,
     weeks: '1 WK',
     shootIncluded: false,
   },
@@ -35,7 +36,7 @@ export const builds: Build[] = [
     id: 'standard',
     name: 'Standard',
     who: 'A full business site. Clean design, light motion, and content you can edit yourself.',
-    price: 4500,
+    price: 3000,
     weeks: '2–3 WKS',
     shootIncluded: true,
   },
@@ -43,7 +44,7 @@ export const builds: Build[] = [
     id: 'cinematic',
     name: 'Cinematic',
     who: "Heavy motion, video and custom interactions. The kind of site you're on now.",
-    price: 8500,
+    price: 5000,
     weeks: '4–6 WKS',
     shootIncluded: true,
   },
@@ -51,7 +52,7 @@ export const builds: Build[] = [
     id: 'agency',
     name: 'Agency grade',
     who: 'Everything in Cinematic, plus a design system another developer or agency can build on.',
-    price: 15000,
+    price: 10000,
     weeks: '8–12 WKS',
     shootIncluded: true,
   },
@@ -68,7 +69,7 @@ export const findAddOns: AddOn[] = [
     id: 'seo',
     name: 'Search setup',
     body: 'The technical work Google reads: speed, schema, and a page for each area you serve.',
-    price: 1200,
+    price: 600,
   },
   {
     id: 'listings',
