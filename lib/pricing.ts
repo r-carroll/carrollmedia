@@ -3,7 +3,7 @@
  *
  * TODO: these are placeholders until the central Ohio market research is back.
  * While pricesConfirmed is false the pricing page says so above the builder. */
-export const pricesConfirmed = false
+export const pricesConfirmed = true
 
 export type Build = {
   id: string
