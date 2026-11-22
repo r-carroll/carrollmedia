@@ -1177,3 +1177,8 @@ a.cm-work-card:focus-visible {
     border-top: var(--hairline) solid var(--color-border);
   }
 }
+
+/* Keep a Japanese label whole; it wraps at the slash instead of mid-word. */
+.cm-rail .text-overline {
+  word-break: keep-all;
+}

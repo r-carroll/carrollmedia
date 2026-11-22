@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { CSSProperties } from 'react'
+import { externalLink } from '@/lib/site'
 import { FrameMark } from './FrameMark'
 
 export type ScopeRowProps = {
@@ -27,7 +28,7 @@ export function ScopeRow({ frame, title, body, meta, href, style }: ScopeRowProp
   )
 
   if (href) {
-    return <Link href={href} className="cm-scope-row cm-cut-transition" style={style}>{content}</Link>
+    return <Link href={href} {...externalLink(href)} className="cm-scope-row cm-cut-transition" style={style}>{content}</Link>
   }
   return <div className="cm-scope-row cm-cut-transition" style={style}>{content}</div>
 }

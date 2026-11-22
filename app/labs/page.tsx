@@ -19,6 +19,19 @@ const omikujiParts = [
   { kanji: '社', name: 'The shrine', body: 'Solid Queue keeps the model off the request; Solid Cable and Turbo bring the fortune back.' },
 ]
 
+/* Articles on Medium, linked rather than copied: they draw developers, not
+ * the local businesses this site is for, so they don't need to live here. */
+const medium = 'https://carrollmedia.medium.com'
+const writing = [
+  { title: 'On the next generation of computer scientists', body: 'What to tell a kid who loves computers, now that a machine can build an app in minutes.', date: 'JAN 2026', href: `${medium}/on-the-next-generation-of-computer-scientists-1510e20f6fba` },
+  { title: 'エンジニアの次の世代へ', body: 'The same essay, in Japanese.', date: 'JAN 2026', href: `${medium}/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E6%AC%A1%E3%81%AE%E4%B8%96%E4%BB%A3%E3%81%B8-dda2ea2e0336` },
+  { title: 'Don’t grind leetcode', body: 'Puzzle practice has its place; hundreds of hours of it doesn’t. Where an engineer’s time pays off instead.', date: 'MAR 2025', href: `${medium}/dont-grind-leetcode-optimize-spending-your-time-where-it-matters-most-286014317b4d` },
+  { title: 'Level up your software engineering', body: 'For early-career engineers: how to go deeper on the fundamentals when there are a hundred directions to go.', date: 'FEB 2025', href: `${medium}/level-up-your-software-engineering-game-a-practical-guide-b1bde089ac98` },
+  { title: 'Japan: the second journey', body: 'A second trip, this time for people rather than sights. Visits, new connections, and a little onsen.', date: 'JUN 2026', href: `${medium}/japan-the-second-journey-ca6cbc0ae31a` },
+  { title: 'An 11-day whirlwind tour of Japan', body: 'The first trip, planned around a bucket list, day by day.', date: 'SEP 2023', href: `${medium}/11-day-whirlwind-tour-of-japan-an-itinerary-f80baf3d470e` },
+  { title: 'Japan travel: three essential tips', body: 'Starting with the one that matters most: learn as much Japanese as you can before you go.', date: 'SEP 2023', href: `${medium}/japan-travel-3-essential-tips-65e99649fe0c` },
+]
+
 /* Labs: the founder's own projects and talks. The one place the Japanese
  * accent from the original portfolio is sanctioned; never in the sales path.
  * Every entry links to the real thing. */
@@ -91,12 +104,20 @@ export default function LabsPage() {
         </div>
       </Section>
 
-      <Section frame={500} label="This site / このサイト" meta={'DESIGN EXPERIMENTS\nTHAT SHIPPED HERE'}>
+      <Section frame={500} label="Writing / 執筆" meta={'ON MEDIUM\nENGINEERING AND JAPAN'}>
+        <div className="cm-scope-list">
+          {writing.map((post, i) => (
+            <ScopeRow key={post.href} frame={501 + i} href={post.href} title={post.title} body={post.body} meta={post.date} />
+          ))}
+        </div>
+      </Section>
+
+      <Section frame={600} label="This site / このサイト" ground="surface" meta={'DESIGN EXPERIMENTS\nTHAT SHIPPED HERE'}>
         <div className="cm-autogrid cm-autogrid--240">
-          <WorkCard frame={501} client="Scroll-scrubbed plate" sector="Interaction — the visitor operates the drone shot" status="Experiment" image="/aerial/aerial-02.jpg" />
-          <WorkCard frame={502} client="Hover plate index" sector="Interaction — carried into the work index" status="Shipped" />
-          <WorkCard frame={503} client="Frame-counter layout" sector="Typography — slate rail as page structure" status="Shipped" />
-          <WorkCard frame={504} client="Grade ladder" sector="Colour — one plate, three grades" status="Experiment" />
+          <WorkCard frame={601} client="Scroll-scrubbed plate" sector="Interaction — the visitor operates the drone shot" status="Experiment" image="/aerial/aerial-02.jpg" />
+          <WorkCard frame={602} client="Hover plate index" sector="Interaction — carried into the work index" status="Shipped" />
+          <WorkCard frame={603} client="Frame-counter layout" sector="Typography — slate rail as page structure" status="Shipped" />
+          <WorkCard frame={604} client="Grade ladder" sector="Colour — one plate, three grades" status="Experiment" />
         </div>
       </Section>
     </>

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { CSSProperties, ReactNode } from 'react'
-import { cx } from '@/lib/site'
+import { cx, externalLink } from '@/lib/site'
 
 export type ButtonProps = {
   variant?: 'action' | 'outline' | 'solid' | 'ghost'
@@ -21,7 +21,7 @@ export function Button({ variant = 'action', size = 'md', href, disabled = false
     if (href.startsWith('/')) {
       return <Link href={href} className={classes} style={style}>{children}</Link>
     }
-    return <a href={href} className={classes} style={style}>{children}</a>
+    return <a href={href} {...externalLink(href)} className={classes} style={style}>{children}</a>
   }
   return <button type="button" disabled={disabled} className={classes} style={style}>{children}</button>
 }
