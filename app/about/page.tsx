@@ -13,6 +13,15 @@ export const metadata: Metadata = {
 /* next/image needs a literal media query here; a token can't stand in. */
 // eslint-disable-next-line no-restricted-syntax
 const PORTRAIT_SIZES = '(max-width: 940px) 100vw, 440px'
+// eslint-disable-next-line no-restricted-syntax
+const PAIR_SIZES = '(max-width: 940px) 100vw, 560px'
+
+/* The two smaller plates under Hells Canyon, so the trips the copy names are
+ * the trips the page shows. */
+const travel = [
+  { src: '/aerial/colorado-snow.jpg', caption: 'DJI_0047 — FRONT RANGE, COLORADO, MAY 2024' },
+  { src: '/aerial/vermont-fall.jpg', caption: 'DJI_0212 — NORTHERN VERMONT, SEP 2024' },
+]
 
 export default function FounderPage() {
   return (
@@ -74,7 +83,27 @@ export default function FounderPage() {
           <p className="text-body" style={{ color: 'var(--color-muted-foreground)', margin: 0 }}>
             Very few people selling websites to a roofer can put a camera over the roof. We can, and the footage on your site is the building your customers drive past, not a stock library.
           </p>
-          <Letterbox src="/aerial/farmland.jpg" grade="case" caption="DJI_0412 — CENTRAL OHIO" />
+          <Letterbox src="/aerial/se-ohio-lake.jpg" grade="case" caption="DJI_0187 — SOUTHEAST OHIO, AUG 2024" />
+        </div>
+      </Section>
+
+      <Section frame={500} label="Off the clock" meta={'COLORADO, VERMONT\nIDAHO'}>
+        <p className="text-body" style={{ color: 'var(--color-muted-foreground)', margin: '0 0 var(--space-xl)', maxWidth: 'var(--copy-measure)' }}>
+          The drone comes on every trip. Most of what it shoots is Ohio; some of it is Colorado in the snow, Vermont as the leaves turn, and Hells Canyon on the Idaho line.
+        </p>
+        <Letterbox src="/aerial/hells-canyon.jpg" grade="case" caption="DJI_0310 — HELLS CANYON, IDAHO, MAY 2025" />
+        <div className="cm-split" style={{ '--split': 'minmax(0,1fr) minmax(0,1fr)', marginTop: 'var(--space-xl)' } as CSSProperties}>
+          {travel.map((plate) => (
+            <figure key={plate.src} style={{ margin: 0 }}>
+              <div style={{ position: 'relative', aspectRatio: '16 / 9', overflow: 'hidden', borderRadius: 'var(--radius-plate)', border: 'var(--hairline) solid var(--color-border)' }}>
+                <Image src={plate.src} alt="" fill sizes={PAIR_SIZES} className="cm-plate cm-cover cm-grade--case" />
+              </div>
+              <figcaption className="text-caption cm-letterbox__caption">
+                <span style={{ color: 'var(--color-dim-foreground)' }}>—</span>
+                <span>{plate.caption}</span>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </Section>
     </>
