@@ -1,0 +1,15 @@
+/* CarrollMedia — design system entry point.
+ * Imports only; never inline rules here.
+ *
+ * The design project's styles.css also pulls Archivo, Geist and Geist Mono from
+ * Google Fonts. Here next/font self-hosts them instead (see app/layout.tsx), and
+ * base.css points the --font-* tokens at those faces.
+ */
+@import './tokens/colors.css';
+@import './tokens/typography.css';
+@import './tokens/spacing.css';
+@import './tokens/motion.css';
+@import './tokens/layout.css';
+
+@import './base.css';
+@import './components.css';

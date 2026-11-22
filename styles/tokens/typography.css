@@ -1,0 +1,75 @@
+/* CarrollMedia — type.
+ *
+ * Three faces, three jobs, no overlap:
+ *   Archivo 800 uppercase — display. Tight tracking, near-1 leading.
+ *   Geist 300 — body. Light weight is deliberate against the heavy display.
+ *   Geist Mono — the camera voice. Frame counters, timecode, every number,
+ *   price, duration and label. If it is a fact or a measurement, it is mono.
+ *
+ * The cinema rule: on a plate, type shrinks to captions and slate data. In a
+ * money section — pricing, scope, contact — type goes back up to full size.
+ * Quiet frames, loud numbers.
+ */
+
+:root {
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-body: 'Geist', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* Scale (px) */
+  --text-2xs: 10px;
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-md: 14px;
+  --text-lg: 16px;
+  --text-xl: 19px;
+  --text-2xl: 21px;
+  --text-3xl: 27px;
+  --text-4xl: 34px;
+  --text-5xl: 48px;
+  --text-6xl: 64px;
+
+  /* Fluid display sizes — the only places clamp() is sanctioned */
+  --display-hero: clamp(44px, 7.6vw, 112px); /* @kind font */
+  --display-section: clamp(34px, 4.4vw, 64px); /* @kind font */
+  --display-sub: clamp(22px, 3vw, 38px); /* @kind font */
+
+  --weight-light: 300;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 800;
+
+  --leading-display: 0.9; /* @kind font */
+  --leading-tight: 1.04; /* @kind font */
+  --leading-normal: 1.5; /* @kind font */
+  --leading-relaxed: 1.64; /* @kind font */
+
+  --tracking-display: -0.038em; /* @kind font */
+  --tracking-tight: -0.03em; /* @kind font */
+  --tracking-label: 0.16em; /* @kind font */
+  --tracking-overline: 0.2em; /* @kind font */
+  --tracking-frame: 0.06em; /* @kind font */
+}
+
+.text-display { font-family: var(--font-display); font-weight: var(--weight-black); font-size: var(--display-hero); line-height: var(--leading-display); letter-spacing: var(--tracking-display); text-transform: uppercase; text-wrap: pretty; }
+.text-h1 { font-family: var(--font-display); font-weight: var(--weight-black); font-size: var(--display-section); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); text-transform: uppercase; text-wrap: pretty; }
+.text-h2 { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: var(--text-4xl); line-height: 1.02; letter-spacing: var(--tracking-tight); text-transform: uppercase; }
+.text-h3 { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: var(--text-2xl); line-height: 1.12; letter-spacing: -0.015em; text-transform: uppercase; }
+
+.text-body-lg { font-family: var(--font-body); font-weight: var(--weight-light); font-size: var(--text-2xl); line-height: var(--leading-relaxed); }
+.text-body { font-family: var(--font-body); font-weight: var(--weight-light); font-size: var(--text-lg); line-height: var(--leading-relaxed); }
+.text-body-sm { font-family: var(--font-body); font-weight: var(--weight-light); font-size: var(--text-md); line-height: var(--leading-normal); }
+
+/* The camera voice — every number, price, measurement and quantified fact */
+.text-num { font-family: var(--font-mono); font-weight: var(--weight-normal); font-variant-numeric: tabular-nums; letter-spacing: 0; }
+.text-label { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.text-overline { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: var(--tracking-overline); text-transform: uppercase; }
+.text-timecode { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: 0.14em; font-variant-numeric: tabular-nums; }
+
+/* Frame counter — the section marker. Always bracketed, always four digits. */
+.text-frame { font-family: var(--font-mono); font-size: var(--text-sm); font-weight: var(--weight-medium); letter-spacing: var(--tracking-frame); font-variant-numeric: tabular-nums; }
+
+/* Caption — the only type allowed to sit on footage besides a masthead line */
+.text-caption { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.08em; line-height: 1.5; color: var(--color-muted-foreground); }

@@ -1,0 +1,42 @@
+/* CarrollMedia — spacing, radius, elevation.
+ *
+ * Radius is 5px: a lens barrel edge, not a rounded app card. Small enough that
+ * the geometry still reads machined, large enough that nothing looks like a
+ * spreadsheet. Plates get 6px. Only full-bleed footage is square.
+ *
+ * Elevation is carried by hairlines and ground shifts, not shadow — a drop
+ * shadow on near-black is invisible, so the system doesn't pretend otherwise.
+ */
+
+:root {
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 22px;
+  --space-xl: 26px;
+  --space-2xl: 32px;
+  --space-3xl: 40px;
+  --space-4xl: 56px;
+  --space-5xl: 72px;
+  --space-6xl: 96px;
+
+  /* Vertical rhythm */
+  --section-pad: var(--space-6xl);
+  --section-pad-tight: var(--space-4xl);
+
+  --radius-none: 0;
+  --radius: 5px;         /* the brand default */
+  --radius-plate: 6px;   /* inset footage, plate wells */
+  --radius-full: 999px;  /* the tally dot only */
+
+  --hairline: 1px;
+  --rule-weight: 1px;
+  --progress-weight: 2px;
+
+  /* Tap targets — trades read this on a phone, on a roof, in gloves */
+  --tap-min: 44px;
+  --tap-field: 56px;
+
+  --shadow-none: none;
+}

@@ -1,0 +1,53 @@
+/* CarrollMedia — layout.
+ *
+ * THE FRAME: every page is a two-column asymmetric grid — a fixed left RAIL
+ * carrying frame counters, slate data and section labels, and content in the
+ * wide right column. Nothing is centered. The rail is what makes the page
+ * read as a viewfinder rather than a brochure, and it is the clearest
+ * structural break from a centered industrial measure.
+ *
+ * Below 940px the rail collapses to a horizontal slate line above content.
+ */
+
+:root {
+  --measure: 1320px;
+  --measure-narrow: 1180px;
+  --gutter: var(--space-3xl);
+  --gutter-sm: var(--space-lg);
+
+  --rail: 152px;          /* the slate rail */
+  --rail-gap: var(--space-3xl);
+
+  --copy-measure: 64ch; /* @kind other */
+  --copy-measure-tight: 52ch; /* @kind other */
+  --headline-measure: 17ch; /* @kind other */
+
+  --header-height: 64px;
+
+  --breakpoint-sm: 640px; /* @kind other */
+  --breakpoint-md: 768px; /* @kind other */
+  --breakpoint-lg: 1024px; /* @kind other */
+  --breakpoint-xl: 1280px; /* @kind other */
+
+  --plate-hero: 88vh; /* @kind other */
+  --plate-strip: 96px;
+  --aspect-scope: 2.39; /* @kind other */    /* the letterbox scene break */
+}
+
+.cm-measure { max-width: var(--measure); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* The frame: rail + content */
+.cm-frame { display: grid; grid-template-columns: var(--rail) minmax(0, 1fr); gap: var(--rail-gap); }
+.cm-rail { display: flex; flex-direction: column; gap: var(--space-sm); }
+
+/* Hairline grid: children sit on --color-card, the 1px gap shows the border */
+.cm-hairline-grid { display: grid; gap: var(--hairline); background: var(--color-border); border: var(--hairline) solid var(--color-border); }
+
+/* Letterbox — the scene break. 2.39:1, footage only. */
+.cm-letterbox { position: relative; aspect-ratio: var(--aspect-scope); overflow: hidden; border-radius: var(--radius-plate); }
+
+@media (max-width: 940px) {
+  .cm-measure { padding: 0 var(--gutter-sm); }
+  .cm-frame { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); }
+  .cm-rail { flex-direction: row; align-items: baseline; gap: var(--space-md); }
+}
